@@ -302,7 +302,7 @@
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
       <exit rectangular="yes" x="2" y="-25" width="124" height="940" hasInfluenceArea="no" idTarget="Calle" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" />
+        <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
   </scene>
@@ -350,7 +350,7 @@
     <default-initial-position x="400" y="450" />
     <exits>
       <exit rectangular="yes" x="2" y="-30" width="164" height="872" hasInfluenceArea="no" idTarget="Burguer" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" />
+        <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
   </scene>
@@ -365,58 +365,8 @@
     <default-initial-position x="400" y="450" />
     <exits>
       <exit rectangular="yes" x="1891" y="1" width="159" height="929" hasInfluenceArea="no" idTarget="SalonCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" />
+        <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
-  </scene>
-  <scene id="clase" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-  </scene>
-  <scene id="patio" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-  </scene>
-  <scene id="burguer" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-  </scene>
-  <scene id="Casa" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-  </scene>
-  <scene id="pasillo" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
   </scene>
 </eAdventure>
