@@ -3,16 +3,16 @@
 <comment> Project Configuration </comment>
 <entry key="Chapter0.Clase.X">700</entry>
 <entry key="Chapter0.Clase.Y">12</entry>
-<entry key="Chapter0.PasilloColegio.X">487</entry>
-<entry key="Chapter0.PasilloColegio.Y">214</entry>
+<entry key="Chapter0.PasilloColegio.X">336</entry>
+<entry key="Chapter0.PasilloColegio.Y">76</entry>
 <entry key="Chapter0.PatioCole.X">-135</entry>
 <entry key="Chapter0.PatioCole.Y">-17</entry>
-<entry key="Chapter0.SalonCasa.X">754</entry>
-<entry key="Chapter0.SalonCasa.Y">455</entry>
+<entry key="Chapter0.SalonCasa.X">681</entry>
+<entry key="Chapter0.SalonCasa.Y">383</entry>
 <entry key="Chapter0.HabitacionCasa.X">267</entry>
-<entry key="Chapter0.HabitacionCasa.Y">421</entry>
-<entry key="Chapter0.Calle.X">-334</entry>
-<entry key="Chapter0.Calle.Y">194</entry>
-<entry key="Chapter0.Burguer.X">-271</entry>
-<entry key="Chapter0.Burguer.Y">394</entry>
+<entry key="Chapter0.HabitacionCasa.Y">422</entry>
+<entry key="Chapter0.Calle.X">-356</entry>
+<entry key="Chapter0.Calle.Y">192</entry>
+<entry key="Chapter0.Burguer.X">-304</entry>
+<entry key="Chapter0.Burguer.Y">369</entry>
 </properties>

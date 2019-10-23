@@ -259,13 +259,25 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="1807" y="188" width="121" height="436" hasInfluenceArea="no" idTarget="PasilloColegio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="1811" y="188" width="117" height="422" hasInfluenceArea="no" idTarget="PasilloColegio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
     <characters>
       <character-ref idTarget="Dani" x="1478" y="862" scale="0.6280591" orientation="0" layer="0" hasInfluenceArea="no" />
     </characters>
+    <active-areas>
+      <active-area id="mesaprota" rectangular="yes" x="1513" y="612" width="347" height="238" hasInfluenceArea="no" behaviour="normal">
+        <description>
+          <name>
+          </name>
+          <brief>
+          </brief>
+          <detailed>
+          </detailed>
+        </description>
+      </active-area>
+    </active-areas>
   </scene>
   <scene id="PasilloColegio" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -319,7 +331,7 @@
       <exit rectangular="yes" x="1549" y="8" width="185" height="420" hasInfluenceArea="no" idTarget="PasilloColegio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
-      <exit rectangular="yes" x="-15" y="67" width="279" height="369" hasInfluenceArea="no" idTarget="HabitacionCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="-15" y="15" width="305" height="421" hasInfluenceArea="no" idTarget="HabitacionCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
@@ -338,6 +350,18 @@
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
+    <active-areas>
+      <active-area id="ordenador" rectangular="yes" x="783" y="270" width="159" height="100" hasInfluenceArea="no" behaviour="normal">
+        <description>
+          <name>
+          </name>
+          <brief>
+          </brief>
+          <detailed>
+          </detailed>
+        </description>
+      </active-area>
+    </active-areas>
   </scene>
   <scene id="Calle" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
