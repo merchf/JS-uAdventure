@@ -70,6 +70,13 @@
           <condition />
         </effect>
       </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: segunda_conversacion</documentation>
+        <effect>
+          <trigger-conversation idTarget="segunda_conversacion" />
+          <condition />
+        </effect>
+      </talk-to>
     </actions>
   </character>
   <character id="Mario">
@@ -414,10 +421,27 @@
       </active-area>
     </active-areas>
   </scene>
-  <graph-conversation id="primera_conversacio">
-    <dialogue-node nodeindex="0" editor-x="639" editor-y="70">
+  <graph-conversation id="primera_conversacion ">
+    <dialogue-node nodeindex="0" editor-x="232" editor-y="92">
       <speak-char idTarget="Dani">¡Hey, Sandra! Menos mal que ya han terminado las clases, he estado a punto de dormirme tres veces.</speak-char>
       <condition />
+      <speak-player>A mí matemáticas me ha gustado.</speak-player>
+      <condition />
+      <speak-char idTarget="Dani"> Siempre has sido de las raritas. </speak-char>
+      <condition />
+      <speak-player>Si tú lo dices… </speak-player>
+      <condition />
+      <speak-char idTarget="Dani">Bueno, de todas formas había venido para invitarte al burger, que vamos a ir algunos de clase. Si quieres vamos juntos.</speak-char>
+      <condition />
+      <speak-player>Claro, pero déjame recoger mis cosas. </speak-player>
+      <condition />
+      <speak-char idTarget="Dani"> Genial, te espero en el patio.</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="segunda_conversacion">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
       <end-conversation />
     </dialogue-node>
   </graph-conversation>
