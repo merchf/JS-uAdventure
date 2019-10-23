@@ -62,6 +62,15 @@
       </detailed>
     </description>
     <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: primera_conversacio</documentation>
+        <effect>
+          <trigger-conversation idTarget="primera_conversacio" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
   </character>
   <character id="Mario">
     <resources name="No name">
@@ -292,10 +301,10 @@
       <exit rectangular="yes" x="743" y="3" width="477" height="403" hasInfluenceArea="no" idTarget="Clase" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
-      <exit rectangular="yes" x="-1" y="147" width="310" height="595" hasInfluenceArea="no" idTarget="PatioCole" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="-1" y="133" width="336" height="609" hasInfluenceArea="no" idTarget="PatioCole" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
-      <exit rectangular="yes" x="1778" y="124" width="275" height="620" hasInfluenceArea="no" idTarget="SalonCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="1706" y="145" width="347" height="599" hasInfluenceArea="no" idTarget="SalonCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
@@ -328,7 +337,7 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="1549" y="8" width="185" height="420" hasInfluenceArea="no" idTarget="PasilloColegio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="1539" y="26" width="199" height="410" hasInfluenceArea="no" idTarget="PasilloColegio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
       <exit rectangular="yes" x="-15" y="15" width="305" height="421" hasInfluenceArea="no" idTarget="HabitacionCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
@@ -392,5 +401,24 @@
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
+    <active-areas>
+      <active-area id="mostrador" rectangular="yes" x="2" y="166" width="290" height="384" hasInfluenceArea="no" behaviour="normal">
+        <description>
+          <name>
+          </name>
+          <brief>
+          </brief>
+          <detailed>
+          </detailed>
+        </description>
+      </active-area>
+    </active-areas>
   </scene>
+  <graph-conversation id="primera_conversacio">
+    <dialogue-node nodeindex="0" editor-x="639" editor-y="70">
+      <speak-char idTarget="Dani">¡Hey, Sandra! Menos mal que ya han terminado las clases, he estado a punto de dormirme tres veces.</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+  </graph-conversation>
 </eAdventure>
