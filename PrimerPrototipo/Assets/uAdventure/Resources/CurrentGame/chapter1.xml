@@ -271,6 +271,37 @@
     </description>
     <voice name="" synthesizeAlways="no" />
   </character>
+  <character id="Madre">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/madreUp.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/madreDown.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+  </character>
   <scene id="Titulo" start="yes" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
@@ -437,8 +468,15 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="59" y="35" width="240" height="557" hasInfluenceArea="no" idTarget="SalonCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="59" y="35" width="240" height="557" hasInfluenceArea="no" idTarget="SalonCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="Dia2" />
+        </condition>
+        <not-effect>
+          <speak-player>Mejor me voy a ir a la cama, que estoy muy cansada</speak-player>
+          <condition />
+        </not-effect>
       </exit>
     </exits>
     <active-areas>
@@ -452,7 +490,7 @@
           </detailed>
         </description>
       </active-area>
-      <active-area id="Cama" rectangular="yes" x="1554" y="619" width="483" height="268" hasInfluenceArea="no" behaviour="normal">
+      <active-area id="Cama" rectangular="yes" x="1557" y="619" width="483" height="268" hasInfluenceArea="no" behaviour="normal">
         <description>
           <name>
           </name>
@@ -461,6 +499,18 @@
           <detailed>
           </detailed>
         </description>
+        <actions>
+          <use needsGoTo="yes" keepDistance="35" not-effects="no">
+            <effect>
+              <speak-player>Me voy a ir ya a dormir</speak-player>
+              <condition />
+              <activate flag="Dia2" />
+              <condition />
+              <trigger-cutscene idTarget="Dormir" />
+              <condition />
+            </effect>
+          </use>
+        </actions>
       </active-area>
     </active-areas>
     <atrezzo>
@@ -566,7 +616,7 @@
       <child nodeindex="3" />
     </option-node>
     <dialogue-node nodeindex="2" editor-x="648" editor-y="40">
-      <speak-char idTarget="Dani"> Vale pues nos vemos en el burguer.</speak-char>
+      <speak-char idTarget="Dani">Vale, voy tirando entonces. Nos vemos en el burguer.</speak-char>
       <condition />
       <end-conversation>
         <effect>
@@ -584,7 +634,7 @@
       <condition />
       <speak-player>Bueno está bien. Vamos.</speak-player>
       <condition />
-      <speak-char idTarget="Dani">Genial, te espero en el patio.</speak-char>
+      <speak-char idTarget="Dani">Genial, te espero en el patio mientras recoges tus cosas.</speak-char>
       <condition />
       <end-conversation>
         <effect>
@@ -601,6 +651,10 @@
       <end-conversation>
         <effect>
           <activate flag="HablarDaniBurguer" />
+          <condition />
+          <trigger-scene idTarget="Burguer" x="1024" y="677" transitionTime="1000" transitionType="4" />
+          <condition />
+          <trigger-conversation idTarget="tercera_conversacion_Burguer" />
           <condition />
         </effect>
       </end-conversation>
@@ -691,7 +745,7 @@
       <effect>
         <increment var="Animo" value="1" />
         <condition>
-          <greater-equals-than var="Animo" value="5" />
+          <less-equals-than var="Animo" value="5" />
         </condition>
       </effect>
     </dialogue-node>
@@ -702,11 +756,9 @@
       <condition />
       <end-conversation>
         <effect>
-          <show-text x="300" y="300" frontColor="#FFFFFFFF" borderColor="#000000FF" uri="">Tras una buena tarde charlando, vuelves a casa</show-text>
-          <condition />
-          <trigger-scene idTarget="HabitacionCasa" x="1024" y="672" transitionTime="1" transitionType="3" />
-          <condition />
           <activate flag="CharlaBurguer" />
+          <condition />
+          <trigger-cutscene idTarget="FinBurguer" />
           <condition />
         </effect>
       </end-conversation>
@@ -780,4 +832,22 @@
       </detailed>
     </description>
   </atrezzoobject>
+  <slidescene id="FinBurguer" start="no" idTarget="HabitacionCasa" destinyX="-2147483648" destinyY="2147483647" transitionTime="0" transitionType="3" next="new-scene" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/animation/TransiccionBurguerCasa.eaa.xml" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
+  <slidescene id="Dormir" start="no" next="go-back" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/animation/dormir.eaa.xml" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
 </eAdventure>
