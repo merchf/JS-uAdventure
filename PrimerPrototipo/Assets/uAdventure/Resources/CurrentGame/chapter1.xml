@@ -271,7 +271,26 @@
     </description>
     <voice name="" synthesizeAlways="no" />
   </character>
-  <scene id="Clase" start="yes" playerLayer="-1" playerScale="1" class="accesible" type="area">
+  <scene id="Titulo" start="yes" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/special/EmptyBackground.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="339" y="268" width="100" height="100" hasInfluenceArea="no" idTarget="Clase" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+        <post-effect>
+          <set-value var="Animo" value="6" />
+          <condition />
+        </post-effect>
+      </exit>
+    </exits>
+  </scene>
+  <scene id="Clase" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
     <resources name="clase">
@@ -296,7 +315,7 @@
       </exit>
     </exits>
     <characters>
-      <character-ref idTarget="Dani" x="1478" y="868" scale="0.6280591" orientation="0" layer="0" hasInfluenceArea="no">
+      <character-ref idTarget="Dani" x="1478" y="868" scale="0.6280591" orientation="0" layer="1" hasInfluenceArea="no">
         <condition>
           <inactive flag="HacerDesaparecerADaniYEnviarloAlPatio" />
           <inactive flag="HablarDaniBurguer" />
@@ -315,6 +334,9 @@
         </description>
       </active-area>
     </active-areas>
+    <atrezzo>
+      <atrezzo-ref idTarget="IndicadorAnimo" x="224" y="342" scale="1.174243" layer="0" />
+    </atrezzo>
   </scene>
   <scene id="PasilloColegio" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -335,10 +357,8 @@
       <exit rectangular="yes" x="1706" y="145" width="347" height="599" hasInfluenceArea="no" idTarget="SalonCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
-          <either>
-            <active flag="HablarDaniBurguer" />
-            <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
-          </either>
+          <inactive flag="HablarDaniBurguer" />
+          <inactive flag="HacerDesaparecerADaniYEnviarloAlPatio" />
         </condition>
         <not-effect>
           <speak-player>Si voy a casa llegaré tarde al burguer, debería salir por el patio.</speak-player>
@@ -375,6 +395,7 @@
       <character-ref idTarget="Dani" x="591" y="588" scale="0.3564471" orientation="2" layer="0" hasInfluenceArea="no">
         <condition>
           <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+          <inactive flag="HablarDaniBurguer" />
         </condition>
       </character-ref>
     </characters>
@@ -424,21 +445,6 @@
       </active-area>
     </active-areas>
   </scene>
-  <scene id="Calle" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
-    <documentation>
-    </documentation>
-    <resources name="No name">
-      <asset type="background" uri="assets/background/calle-parque.png" />
-    </resources>
-    <name>
-    </name>
-    <default-initial-position x="400" y="450" />
-    <exits>
-      <exit rectangular="yes" x="2" y="-30" width="164" height="872" hasInfluenceArea="no" idTarget="Burguer" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
-        <exit-look text="" cursor-path="" sound-path="" />
-      </exit>
-    </exits>
-  </scene>
   <scene id="Burguer" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
     </documentation>
@@ -449,12 +455,19 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="1891" y="1" width="159" height="929" hasInfluenceArea="no" idTarget="SalonCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="1891" y="1" width="159" height="929" hasInfluenceArea="no" idTarget="SalonCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="CharlaBurguer" />
+        </condition>
+        <not-effect>
+          <speak-player>No te vayas, que estás con tus amigos!!!</speak-player>
+          <condition />
+        </not-effect>
       </exit>
     </exits>
     <characters>
-      <character-ref idTarget="Dani" x="966" y="608" scale="0.5032924" orientation="2" layer="0" hasInfluenceArea="no">
+      <character-ref idTarget="Dani" x="1303" y="658" scale="0.5984449" orientation="0" layer="0" hasInfluenceArea="no">
         <condition>
           <either>
             <active flag="HablarDaniBurguer" />
@@ -462,6 +475,8 @@
           </either>
         </condition>
       </character-ref>
+      <character-ref idTarget="Mario" x="660" y="674" scale="0.5535784" orientation="0" layer="1" hasInfluenceArea="no" />
+      <character-ref idTarget="Julia" x="987" y="639" scale="0.7465571" orientation="0" layer="2" hasInfluenceArea="no" />
     </characters>
     <active-areas>
       <active-area id="mostrador" rectangular="yes" x="2" y="166" width="290" height="384" hasInfluenceArea="no" behaviour="normal">
@@ -475,6 +490,25 @@
         </description>
       </active-area>
     </active-areas>
+  </scene>
+  <scene id="Calle" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/calle-parque.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="2" y="-30" width="164" height="872" hasInfluenceArea="no" idTarget="Burguer" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+        <post-effect>
+          <trigger-conversation idTarget="tercera_conversacion_Burguer" />
+          <condition />
+        </post-effect>
+      </exit>
+    </exits>
   </scene>
   <scene id="CocinaCasa" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -549,4 +583,154 @@
       </end-conversation>
     </dialogue-node>
   </graph-conversation>
+  <graph-conversation id="tercera_conversacion_Burguer">
+    <dialogue-node nodeindex="0" editor-x="58" editor-y="49">
+      <speak-char idTarget="Mario">¡Hola Sandra! ¿Qué tal? Hace mucho que no salías con nosotros.</speak-char>
+      <condition />
+      <speak-char idTarget="Julia">¡Hey! Menos mal que has venido. ¿Sabes? Vuelvo a necesitar tu ayuda con las mates.</speak-char>
+      <condition />
+      <speak-char idTarget="Dani">He consiguido que saliera de su cueva.</speak-char>
+      <condition />
+      <speak-player>Lo siento, últimamente tengo mucho que eestudiar.</speak-player>
+      <condition />
+      <speak-char idTarget="Mario">Pero si aún queda dos meses para selectividad, ¿No te estás estresando demasiado?</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" preListening="yes" editor-x="570" editor-y="49" x="570" y="49">
+      <speak-player>¿No será que estás tú muy relajado?</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Necesito conseguir una buena nota y no lo haré estudando la semana de antes.</speak-player>
+      <condition />
+      <child nodeindex="3" />
+      <speak-player>Supongo que tienes razón, igual debería tomármelo com más</speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="790" editor-y="49">
+      <speak-char idTarget="Mario">Ese es mi lema en la vida.</speak-char>
+      <condition />
+      <child nodeindex="4" />
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="790" editor-y="243">
+      <speak-char idTarget="Mario">Pero tienes tiempo de sobra.</speak-char>
+      <condition />
+      <child nodeindex="4" />
+      <effect>
+        <increment var="Animo" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="1096" editor-y="145">
+      <speak-char idTarget="Julia">A todo esto, ¿tenéis pensado que queréis estudiar? Yo había pensado Psicología.</speak-char>
+      <condition />
+      <speak-char idTarget="Dani">Yo quiero entrar en Ingeniería Civil.</speak-char>
+      <condition />
+      <speak-char idTarget="Mario">Yo estoy entre Física y ADE.</speak-char>
+      <condition />
+      <speak-char idTarget="Dani">Con lo vago que eres yo que tú me iba a ADE.</speak-char>
+      <condition />
+      <speak-player>A mi me gustaría hacer Ingeniería Informática.</speak-player>
+      <condition />
+      <speak-char idTarget="Mario">...</speak-char>
+      <condition />
+      <speak-char idTarget="Mario">¿Pero en esa carrera hay chicas? Bueno, igualmente siempre has sido algo más marimacho.</speak-char>
+      <condition />
+      <child nodeindex="5" />
+    </dialogue-node>
+    <option-node nodeindex="5" editor-x="1331" editor-y="145" x="1331" y="145">
+      <speak-player>No creo que mi género influya en la carrera que quiera estudiar</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>Es que me interesa mucho la programación.</speak-player>
+      <condition />
+      <child nodeindex="7" />
+      <speak-player>Bueno, igual tienes razón, tampoco quiero parecer una rara</speak-player>
+      <condition />
+      <child nodeindex="8" />
+    </option-node>
+    <dialogue-node nodeindex="6" editor-x="1549" editor-y="134">
+      <speak-char idTarget="Julia">Es cierto. No seas un idiota Mario, que estamos en el siglo XXI. No llames así a Sandra.</speak-char>
+      <condition />
+      <child nodeindex="7" />
+      <effect>
+        <increment var="Animo" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="1771" editor-y="272">
+      <speak-char idTarget="Mario">Bueno, haz lo que quieras. Después de todo es tu futuro, aunque yo me lo pensaría.</speak-char>
+      <condition />
+      <speak-char idTarget="Dani">¡Oye! Ya viene nuestra comida. Olvidaos de los estudios ahora.</speak-char>
+      <condition />
+      <end-conversation />
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1553" editor-y="394">
+      <child nodeindex="7" />
+      <effect>
+        <decrement var="Animo" value="1" />
+        <condition />
+      </effect>
+    </dialogue-node>
+  </graph-conversation>
+  <atrezzoobject id="IndicadorAnimo">
+    <resources name="6">
+      <condition>
+        <greater-equals-than var="Animo" value="6" />
+      </condition>
+      <asset type="image" uri="assets/image/Vida 6.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <resources name="5">
+      <condition>
+        <equals var="Animo" value="5" />
+      </condition>
+      <asset type="image" uri="assets/image/Vida 5.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <resources name="4">
+      <condition>
+        <equals var="Animo" value="4" />
+      </condition>
+      <asset type="image" uri="assets/image/Vida 4.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <resources name="3">
+      <condition>
+        <equals var="Animo" value="3" />
+      </condition>
+      <asset type="image" uri="assets/image/Vida 3.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <resources name="2">
+      <condition>
+        <equals var="Animo" value="2" />
+      </condition>
+      <asset type="image" uri="assets/image/Vida 2.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <resources name="1">
+      <condition>
+        <equals var="Animo" value="1" />
+      </condition>
+      <asset type="image" uri="assets/image/Vida 1.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <resources name="0">
+      <condition>
+        <less-equals-than var="Animo" value="0" />
+      </condition>
+      <asset type="image" uri="assets/image/Vacia .png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+  </atrezzoobject>
 </eAdventure>
