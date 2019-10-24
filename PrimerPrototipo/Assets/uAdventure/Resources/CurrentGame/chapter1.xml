@@ -83,6 +83,12 @@
           <condition />
         </effect>
       </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <trigger-conversation idTarget="quinta_coversacion_DaniEntraAClase" />
+          <condition />
+        </effect>
+      </talk-to>
     </actions>
   </character>
   <character id="Mario">
@@ -177,6 +183,14 @@
       </detailed>
     </description>
     <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <trigger-conversation idTarget="cuarta_conversacion_CotilleosCompañeros" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
   </character>
   <character id="CompañeroClase2">
     <resources name="No name">
@@ -346,10 +360,33 @@
       </exit>
     </exits>
     <characters>
-      <character-ref idTarget="Dani" x="559" y="863" scale="0.589029" orientation="0" layer="1" hasInfluenceArea="no">
+      <character-ref idTarget="Dani" x="565" y="869" scale="0.589029" orientation="0" layer="5" hasInfluenceArea="no">
         <condition>
-          <inactive flag="HacerDesaparecerADaniYEnviarloAlPatio" />
           <inactive flag="HablarDaniBurguer" />
+          <inactive flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="CompañeroClase1" x="1034" y="589" scale="0.4054624" orientation="2" layer="1" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="EntraProfesor" />
+          <active flag="Dia2" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="CompañeroClase2" x="928" y="639" scale="0.4877297" orientation="0" layer="2" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="EntraProfesor" />
+          <active flag="Dia2" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="CompañeroClase3" x="1186" y="588" scale="0.5761287" orientation="0" layer="3" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="EntraProfesor" />
+          <active flag="Dia2" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="Profesor" x="755" y="589" scale="0.3962661" orientation="2" layer="4" hasInfluenceArea="no">
+        <condition>
+          <active flag="EntraProfesor" />
         </condition>
       </character-ref>
     </characters>
@@ -381,6 +418,13 @@
     <exits>
       <exit rectangular="yes" x="743" y="3" width="477" height="403" hasInfluenceArea="no" idTarget="Clase" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="Dia2" />
+        </condition>
+        <post-effect>
+          <trigger-conversation idTarget="cuarta_conversacion_CotilleosCompañeros" />
+          <condition />
+        </post-effect>
       </exit>
       <exit rectangular="yes" x="-1" y="133" width="336" height="609" hasInfluenceArea="no" idTarget="PatioCole" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
@@ -502,7 +546,7 @@
         <actions>
           <use needsGoTo="yes" keepDistance="35" not-effects="no">
             <effect>
-              <speak-player>Me voy a ir ya a dormir</speak-player>
+              <speak-player>Estoy cansada, voy a dormir.</speak-player>
               <condition />
               <activate flag="Dia2" />
               <condition />
@@ -771,6 +815,44 @@
           <greater-than var="Animo" value="0" />
         </condition>
       </effect>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="cuarta_conversacion_CotilleosCompañeros">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="CompañeroClase1">¿Os habéis enterado de eso?</speak-char>
+      <condition />
+      <speak-char idTarget="CompañeroClase2">Siempre ha sido rara...</speak-char>
+      <condition />
+      <speak-char idTarget="CompañeroClase3">Pero... ¿eso no es muy de tíos?</speak-char>
+      <condition />
+      <speak-char idTarget="CompañeroClase2">Y de frikis, además.</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="CotilleosCompañeros" />
+          <condition />
+          <trigger-conversation idTarget="quinta_coversacion_DaniEntraAClase" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="quinta_coversacion_DaniEntraAClase">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Dani">Buenos días, Sandra.</speak-char>
+      <condition />
+      <speak-player>Buenas.</speak-player>
+      <condition />
+      <speak-player>Oye, Dani, ¿Tienes idea de lo que están hablando?</speak-player>
+      <condition />
+      <speak-char idTarget="Dani">Ugh... Ignóralos, no creo que sea nada importante.</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="EntraProfesor" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <atrezzoobject id="IndicadorAnimo">
