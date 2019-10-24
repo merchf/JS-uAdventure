@@ -89,6 +89,13 @@
           <condition />
         </effect>
       </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: septima_conversacion_DaniPasillo</documentation>
+        <effect>
+          <trigger-conversation idTarget="septima_conversacion_DaniPasillo" />
+          <condition />
+        </effect>
+      </talk-to>
     </actions>
   </character>
   <character id="Mario">
@@ -284,6 +291,15 @@
       </detailed>
     </description>
     <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no" />
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <trigger-conversation idTarget="sexta_conversacion_Profesor" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
   </character>
   <character id="Madre">
     <resources name="No name">
@@ -315,6 +331,46 @@
       </detailed>
     </description>
     <voice name="" synthesizeAlways="no" />
+  </character>
+  <character id="Padre">
+    <resources name="No name">
+      <asset type="standup" uri="assets/animation/padreUp.eaa.xml" />
+      <asset type="standdown" uri="assets/animation/padre_Down.eaa.xml" />
+      <asset type="standright" uri="assets/special/EmptyAnimation" />
+      <asset type="standleft" uri="assets/special/EmptyAnimation" />
+      <asset type="speakup" uri="assets/special/EmptyAnimation" />
+      <asset type="speakdown" uri="assets/special/EmptyAnimation" />
+      <asset type="speakright" uri="assets/special/EmptyAnimation" />
+      <asset type="speakleft" uri="assets/special/EmptyAnimation" />
+      <asset type="useright" uri="assets/special/EmptyAnimation" />
+      <asset type="useleft" uri="assets/special/EmptyAnimation" />
+      <asset type="walkup" uri="assets/special/EmptyAnimation" />
+      <asset type="walkdown" uri="assets/special/EmptyAnimation" />
+      <asset type="walkright" uri="assets/special/EmptyAnimation" />
+      <asset type="walkleft" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <textcolor showsSpeechBubble="no" bubbleBkgColor="#FFFFFF" bubbleBorderColor="#000000">
+      <frontcolor color="#FFFFFF" />
+      <bordercolor color="#000000" />
+    </textcolor>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <voice name="" synthesizeAlways="no" />
+    <actions>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <documentation>Created with target conversation: octava_conversacion_Padres</documentation>
+        <effect>
+          <trigger-conversation idTarget="octava_conversacion_Padres" />
+          <condition />
+        </effect>
+      </talk-to>
+    </actions>
   </character>
   <scene id="Titulo" start="yes" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -353,6 +409,12 @@
             <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
           </either>
         </condition>
+        <effect>
+          <trigger-conversation idTarget="sexta_conversacion_Profesor" />
+          <condition>
+            <active flag="EntraProfesor" />
+          </condition>
+        </effect>
         <not-effect>
           <speak-player>Debería hablar con Dani para ver que plan tienen hoy.</speak-player>
           <condition />
@@ -441,6 +503,13 @@
         </not-effect>
       </exit>
     </exits>
+    <characters>
+      <character-ref idTarget="Dani" x="1639" y="999" scale="0.9098909" orientation="0" layer="1" hasInfluenceArea="no">
+        <condition>
+          <active flag="HablarProfesor" />
+        </condition>
+      </character-ref>
+    </characters>
     <atrezzo>
       <atrezzo-ref idTarget="IndicadorAnimo" x="1024" y="264" scale="1" layer="0" />
     </atrezzo>
@@ -498,6 +567,18 @@
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
+    <characters>
+      <character-ref idTarget="Padre" x="831" y="500" scale="0.1691614" orientation="0" layer="1" hasInfluenceArea="no">
+        <condition>
+          <active flag="HablarProfesor" />
+        </condition>
+      </character-ref>
+      <character-ref idTarget="Madre" x="1891" y="615" scale="0.2166619" orientation="0" layer="2" hasInfluenceArea="no">
+        <condition>
+          <active flag="HablarProfesor" />
+        </condition>
+      </character-ref>
+    </characters>
     <atrezzo>
       <atrezzo-ref idTarget="IndicadorAnimo" x="1024" y="264" scale="1" layer="0" />
     </atrezzo>
@@ -851,8 +932,272 @@
         <effect>
           <activate flag="EntraProfesor" />
           <condition />
+          <speak-char idTarget="Profesor">Buenos días, espero  que hayáis repasado el temario para la prueba de hoy. Mucha suerte a todos.</speak-char>
+          <condition />
+          <wait-time time="2" />
+          <condition />
+          <speak-char idTarget="Profesor">¿Queda alguien por entregar?¿No? De acuerdo, podéis iros.</speak-char>
+          <condition />
         </effect>
       </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="sexta_conversacion_Profesor">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="51">
+      <speak-char idTarget="Profesor">Sandra,¿puedo hablar un momento contigo?</speak-char>
+      <condition />
+      <speak-char idTarget="Profesor">Me han comentado que quieres estudiar Ingeniería Informática. ¿Es cierto?</speak-char>
+      <condition />
+      <speak-player>Es lo que tengo pensado desde hace un tiempo.</speak-player>
+      <condition />
+      <speak-char idTarget="Profesor">¿Y estás segura de ello? No creo que se adapte demasiado a ti.</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" preListening="yes" editor-x="285" editor-y="51" x="285" y="51">
+      <speak-player>Sí, estoy segura.</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>¿A qué se refiere exactamente con que no se adapta a mi?</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="505" editor-y="51">
+      <end-conversation>
+        <effect>
+          <increment var="Animo" value="1" />
+          <condition>
+            <less-equals-than var="Animo" value="5" />
+          </condition>
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="505" editor-y="245">
+      <speak-char idTarget="Profesor">¡Oh! No, a nada. Es solo que creo que una alumna como tú destacaría mucho más en una carrera de la rama de salud. Además, sé que no sabes tratar demasiado bien con los chicos y allí no hay demasiadas mujeres.</speak-char>
+      <condition />
+      <speak-player>Pero a mí no me gusta demasiado la biología. Me interesa mucho más la programación.</speak-player>
+      <condition />
+      <speak-char idTarget="Profesor">Yo solo te aconsejo pensando en lo mejor para ti. El sexo masculino suele tener mayor inclinación hacia estos ámbitos ya que tiene un mayor desarrollo de su visión espacial, y las probabilidades de éxito siempre son mayores.</speak-char>
+      <condition />
+      <child nodeindex="4" />
+      <effect>
+        <decrement var="Animo" value="1" />
+        <condition>
+          <greater-than var="Animo" value="0" />
+        </condition>
+      </effect>
+    </dialogue-node>
+    <option-node nodeindex="4" preListening="yes" editor-x="740" editor-y="245" x="740" y="245">
+      <speak-player>Gracias. Me marcho ya.</speak-player>
+      <condition />
+      <child nodeindex="5" />
+      <speak-player>Gracias, pero seguiré manteniendo mi opinión e intentaré entrar en esa Ingeniería.</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>¿Usted cree?</speak-player>
+      <condition />
+      <child nodeindex="7" />
+    </option-node>
+    <dialogue-node nodeindex="5" editor-x="960" editor-y="245">
+      <child nodeindex="8" />
+    </dialogue-node>
+    <dialogue-node nodeindex="6" editor-x="960" editor-y="439">
+      <child nodeindex="8" />
+      <effect>
+        <increment var="Animo" value="1" />
+        <condition>
+          <less-equals-than var="Animo" value="5" />
+        </condition>
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="960" editor-y="633">
+      <speak-char idTarget="Profesor">Sí, lo cierto es que sí</speak-char>
+      <condition />
+      <child nodeindex="8" />
+      <effect>
+        <decrement var="Animo" value="1" />
+        <condition>
+          <greater-than var="Animo" value="0" />
+        </condition>
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1234" editor-y="411">
+      <speak-char idTarget="Profesor">De todas formas, yo me lo pensaría de nuevo antes de elegir una carrera, Sandra. Tienes muchas puertas abiertas y creo que te convendría replantearte algunas cosas antes de tomar una decisión.</speak-char>
+      <condition />
+      <child nodeindex="9" />
+    </dialogue-node>
+    <option-node nodeindex="9" preListening="yes" editor-x="1469" editor-y="411" x="1469" y="411">
+      <speak-player>Lo haré.</speak-player>
+      <condition />
+      <child nodeindex="10" />
+      <speak-player>Gracias por su opinión pero es mi decisión al fin y al cabo.</speak-player>
+      <condition />
+      <child nodeindex="11" />
+    </option-node>
+    <dialogue-node nodeindex="10" editor-x="1689" editor-y="411">
+      <end-conversation>
+        <effect>
+          <decrement var="Animo" value="1" />
+          <condition>
+            <greater-than var="Animo" value="0" />
+          </condition>
+          <activate flag="HablarProfesor" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="11" editor-x="1689" editor-y="605">
+      <end-conversation>
+        <effect>
+          <increment var="Animo" value="1" />
+          <condition>
+            <less-equals-than var="Animo" value="5" />
+          </condition>
+          <activate flag="HablarProfesor" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="septima_conversacion_DaniPasillo">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Dani">¿Qué quería?</speak-char>
+      <condition />
+      <speak-player>Nada, era para hablar de lo que iba a estudiar al próximo año, ya que se ha enterado de que me gustaría entrar en Ingeniería Informática.</speak-player>
+      <condition />
+      <speak-char idTarget="Dani">¿Y qué te ha dicho?</speak-char>
+      <condition />
+      <speak-player>Que él piensa que podría destacar en una carrera que estuviera relacionada con la rama de la salud y que me adaptaría mejor por el tema de que soy mujer, que pensase mejor mi decisión.</speak-player>
+      <condition />
+      <speak-char idTarget="Dani">No le hagas caso, tu haz lo que quieras con tu futuro, ya que porque tu seas mujer no implica que no puedas estudiar esa carrera</speak-char>
+      <condition />
+      <speak-player>Ya... Bueno me voy a casa.</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <trigger-scene idTarget="SalonCasa" x="1024" y="498" transitionTime="2000" transitionType="5" />
+          <condition />
+          <trigger-conversation idTarget="octava_conversacion_Padres" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="octava_conversacion_Padres">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Padre">Hola hija, ¿qué tal el día hoy?</speak-char>
+      <condition />
+      <speak-player>Un poco complicado…</speak-player>
+      <condition />
+      <speak-char idTarget="Madre">¿Y eso? ¿Qué ha pasado?</speak-char>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" editor-x="285" editor-y="50" x="285" y="50">
+      <speak-player>No me apetece hablarlo mucho.</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Es sobre la carrera que voy a estudiar, porque parece que todo el mundo tiene derecho a criticar mi decisión.</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="505" editor-y="50">
+      <child nodeindex="4" />
+      <effect>
+        <decrement var="Animo" value="1" />
+        <condition>
+          <greater-than var="Animo" value="0" />
+        </condition>
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="505" editor-y="244">
+      <child nodeindex="4" />
+      <effect>
+        <increment var="Animo" value="1" />
+        <condition>
+          <less-equals-than var="Animo" value="5" />
+        </condition>
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="734" editor-y="178">
+      <speak-char idTarget="Padre">Pero... ¿Qué quieres estudiar?</speak-char>
+      <condition />
+      <speak-player>Ingeniería Informática.</speak-player>
+      <condition />
+      <speak-char idTarget="Madre">¿Estás segura de ello?</speak-char>
+      <condition />
+      <child nodeindex="5" />
+    </dialogue-node>
+    <option-node nodeindex="5" editor-x="969" editor-y="178" x="969" y="178">
+      <speak-player>¿Podría dejar todo el mundo de cuestionar lo que quiero hacer con mi vida?</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>Yo  creo que sí.</speak-player>
+      <condition />
+      <child nodeindex="7" />
+      <speak-player>No estoy muy segura, me han empezado a entrar las dudas hoy.</speak-player>
+      <condition />
+      <child nodeindex="8" />
+    </option-node>
+    <dialogue-node nodeindex="6" editor-x="1185" editor-y="29">
+      <child nodeindex="7" />
+      <effect>
+        <increment var="Animo" value="1" />
+        <condition>
+          <less-equals-than var="Animo" value="5" />
+        </condition>
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="1372" editor-y="277">
+      <speak-char idTarget="Padre">Lo importante es que te guste la carrera que elijas y si estás decidida tomes la decisión que veas correcta.</speak-char>
+      <condition />
+      <speak-char idTarget="Madre">Siempre tienes tiempo de cambiar de carrera si no te gusta.</speak-char>
+      <condition />
+      <child nodeindex="9" />
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="1167" editor-y="505">
+      <child nodeindex="7" />
+      <effect>
+        <decrement var="Animo" value="1" />
+        <condition>
+          <greater-than var="Animo" value="0" />
+        </condition>
+      </effect>
+    </dialogue-node>
+    <option-node nodeindex="9" editor-x="1597" editor-y="196" x="1597" y="196">
+      <speak-player>Tenéis razón, creo que debería preocuparme un poco más por mi futuro y dejar de escuchar a los demás.</speak-player>
+      <condition />
+      <child nodeindex="10" />
+      <speak-player>Pero no quiero que todos piensen que soy un bicho raro.</speak-player>
+      <condition />
+      <child nodeindex="11" />
+    </option-node>
+    <dialogue-node nodeindex="10" editor-x="1817" editor-y="196">
+      <child nodeindex="12" />
+      <effect>
+        <increment var="Animo" value="1" />
+        <condition>
+          <less-equals-than var="Animo" value="5" />
+        </condition>
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="11" editor-x="1817" editor-y="390">
+      <child nodeindex="12" />
+      <effect>
+        <decrement var="Animo" value="1" />
+        <condition>
+          <greater-than var="Animo" value="0" />
+        </condition>
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="12" editor-x="2057" editor-y="301">
+      <speak-player>Estoy muy cansada, me voy a mi cuarto.</speak-player>
+      <condition />
+      <speak-char idTarget="Madre">Vale hija, buenas noches.</speak-char>
+      <condition />
+      <speak-char idTarget="Padre">Buenas noches cariño.</speak-char>
+      <condition />
+      <end-conversation />
     </dialogue-node>
   </graph-conversation>
   <atrezzoobject id="IndicadorAnimo">
