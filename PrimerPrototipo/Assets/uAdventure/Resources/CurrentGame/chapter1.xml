@@ -84,13 +84,19 @@
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="CotilleosCompañeros" />
+          <inactive flag="HablarProfesor" />
+        </condition>
         <effect>
           <trigger-conversation idTarget="quinta_coversacion_DaniEntraAClase" />
           <condition />
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <documentation>Created with target conversation: septima_conversacion_DaniPasillo</documentation>
+        <condition>
+          <active flag="HablarProfesor" />
+        </condition>
         <effect>
           <trigger-conversation idTarget="septima_conversacion_DaniPasillo" />
           <condition />
@@ -364,7 +370,6 @@
     <voice name="" synthesizeAlways="no" />
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
-        <documentation>Created with target conversation: octava_conversacion_Padres</documentation>
         <effect>
           <trigger-conversation idTarget="octava_conversacion_Padres" />
           <condition />
@@ -499,7 +504,9 @@
         </condition>
         <not-effect>
           <speak-player>Si voy a casa llegaré tarde al burguer, debería salir por el patio.</speak-player>
-          <condition />
+          <condition>
+            <inactive flag="CharlaBurguer" />
+          </condition>
         </not-effect>
       </exit>
     </exits>
@@ -1093,7 +1100,7 @@
       <condition />
       <child nodeindex="1" />
     </dialogue-node>
-    <option-node nodeindex="1" editor-x="285" editor-y="50" x="285" y="50">
+    <option-node nodeindex="1" preListening="yes" editor-x="285" editor-y="50" x="285" y="50">
       <speak-player>No me apetece hablarlo mucho.</speak-player>
       <condition />
       <child nodeindex="2" />
@@ -1128,7 +1135,7 @@
       <condition />
       <child nodeindex="5" />
     </dialogue-node>
-    <option-node nodeindex="5" editor-x="969" editor-y="178" x="969" y="178">
+    <option-node nodeindex="5" preListening="yes" editor-x="969" editor-y="178" x="969" y="178">
       <speak-player>¿Podría dejar todo el mundo de cuestionar lo que quiero hacer con mi vida?</speak-player>
       <condition />
       <child nodeindex="6" />
@@ -1164,7 +1171,7 @@
         </condition>
       </effect>
     </dialogue-node>
-    <option-node nodeindex="9" editor-x="1597" editor-y="196" x="1597" y="196">
+    <option-node nodeindex="9" preListening="yes" editor-x="1597" editor-y="196" x="1597" y="196">
       <speak-player>Tenéis razón, creo que debería preocuparme un poco más por mi futuro y dejar de escuchar a los demás.</speak-player>
       <condition />
       <child nodeindex="10" />
