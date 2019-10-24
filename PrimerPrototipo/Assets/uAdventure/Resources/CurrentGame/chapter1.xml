@@ -64,14 +64,22 @@
     <voice name="" synthesizeAlways="no" />
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="HablarDaniBurguer" />
+          <inactive flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+        </condition>
         <effect>
-          <trigger-conversation idTarget="primera_conversacio" />
+          <trigger-conversation idTarget="primera_conversacion_Dani" />
           <condition />
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="HablarDaniBurguer" />
+          <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+        </condition>
         <effect>
-          <trigger-conversation idTarget="segunda_conversacion" />
+          <trigger-conversation idTarget="segunda_conversacion_PatioIrAlBurguer" />
           <condition />
         </effect>
       </talk-to>
@@ -273,12 +281,27 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="1811" y="188" width="117" height="422" hasInfluenceArea="no" idTarget="PasilloColegio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="1811" y="188" width="117" height="422" hasInfluenceArea="no" idTarget="PasilloColegio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <either>
+            <active flag="HablarDaniBurguer" />
+            <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+          </either>
+        </condition>
+        <not-effect>
+          <speak-player>Debería hablar con Dani para ver que plan tienen hoy.</speak-player>
+          <condition />
+        </not-effect>
       </exit>
     </exits>
     <characters>
-      <character-ref idTarget="Dani" x="1478" y="862" scale="0.6280591" orientation="0" layer="0" hasInfluenceArea="no" />
+      <character-ref idTarget="Dani" x="1478" y="868" scale="0.6280591" orientation="0" layer="0" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+          <inactive flag="HablarDaniBurguer" />
+        </condition>
+      </character-ref>
     </characters>
     <active-areas>
       <active-area id="mesaprota" rectangular="yes" x="1513" y="612" width="347" height="238" hasInfluenceArea="no" behaviour="normal">
@@ -309,8 +332,18 @@
       <exit rectangular="yes" x="-1" y="133" width="336" height="609" hasInfluenceArea="no" idTarget="PatioCole" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
-      <exit rectangular="yes" x="1706" y="145" width="347" height="599" hasInfluenceArea="no" idTarget="SalonCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="1706" y="145" width="347" height="599" hasInfluenceArea="no" idTarget="SalonCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <either>
+            <active flag="HablarDaniBurguer" />
+            <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+          </either>
+        </condition>
+        <not-effect>
+          <speak-player>Si voy a casa llegaré tarde al burguer, debería salir por el patio.</speak-player>
+          <condition />
+        </not-effect>
       </exit>
     </exits>
   </scene>
@@ -327,10 +360,24 @@
       <exit rectangular="yes" x="1843" y="-9" width="227" height="934" hasInfluenceArea="no" idTarget="PasilloColegio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
-      <exit rectangular="yes" x="2" y="-25" width="124" height="940" hasInfluenceArea="no" idTarget="Calle" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="2" y="-34" width="375" height="949" hasInfluenceArea="no" idTarget="Calle" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <active flag="HablarDaniBurguer" />
+        </condition>
+        <not-effect>
+          <speak-player>He quedado con Dani en el patio, debería decirle que ya estoy lista.</speak-player>
+          <condition />
+        </not-effect>
       </exit>
     </exits>
+    <characters>
+      <character-ref idTarget="Dani" x="591" y="588" scale="0.3564471" orientation="2" layer="0" hasInfluenceArea="no">
+        <condition>
+          <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+        </condition>
+      </character-ref>
+    </characters>
   </scene>
   <scene id="SalonCasa" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
     <documentation>
@@ -406,6 +453,16 @@
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
+    <characters>
+      <character-ref idTarget="Dani" x="966" y="608" scale="0.5032924" orientation="2" layer="0" hasInfluenceArea="no">
+        <condition>
+          <either>
+            <active flag="HablarDaniBurguer" />
+            <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+          </either>
+        </condition>
+      </character-ref>
+    </characters>
     <active-areas>
       <active-area id="mostrador" rectangular="yes" x="2" y="166" width="290" height="384" hasInfluenceArea="no" behaviour="normal">
         <description>
@@ -429,8 +486,8 @@
     </name>
     <default-initial-position x="400" y="450" />
   </scene>
-  <graph-conversation id="primera_conversacion ">
-    <dialogue-node nodeindex="0" editor-x="963" editor-y="154">
+  <graph-conversation id="primera_conversacion_Dani">
+    <dialogue-node nodeindex="0" editor-x="75" editor-y="40">
       <speak-char idTarget="Dani">¡Hey, Sandra! Menos mal que ya han terminado las clases, he estado a punto de dormirme tres veces.</speak-char>
       <condition />
       <speak-player>A mí matemáticas me ha gustado.</speak-player>
@@ -441,16 +498,55 @@
       <condition />
       <speak-char idTarget="Dani">Bueno, de todas formas había venido para invitarte al burger, que vamos a ir algunos de clase. Si quieres vamos juntos.</speak-char>
       <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" preListening="yes" editor-x="428" editor-y="40" x="428" y="40">
       <speak-player>Claro, pero déjame recoger mis cosas. </speak-player>
       <condition />
-      <speak-char idTarget="Dani"> Genial, te espero en el patio.</speak-char>
+      <child nodeindex="2" />
+      <speak-player>No me apetece demasiado</speak-player>
       <condition />
-      <end-conversation />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="648" editor-y="40">
+      <speak-char idTarget="Dani"> Vale pues nos vemos en le burguer.</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="HablarDaniBurguer" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="648" editor-y="234">
+      <speak-char idTarget="Dani">¡Venga hombre, anímate! Vienen Julia y Mario. Además, no te vendría mal salir un poco y dejar tus "maniquitas"</speak-char>
+      <condition />
+      <speak-player>No sé...</speak-player>
+      <condition />
+      <speak-char idTarget="Dani">Vengaaaaaa</speak-char>
+      <condition />
+      <speak-player>Bueno está bien. Vamos.</speak-player>
+      <condition />
+      <speak-char idTarget="Dani">Genial, te espero en el patio.</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
-  <graph-conversation id="segunda_conversacion">
-    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
-      <end-conversation />
+  <graph-conversation id="segunda_conversacion_PatioIrAlBurguer">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="49">
+      <speak-char idTarget="Dani">¿Lista? Vámonos.</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="HablarDaniBurguer" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
 </eAdventure>
