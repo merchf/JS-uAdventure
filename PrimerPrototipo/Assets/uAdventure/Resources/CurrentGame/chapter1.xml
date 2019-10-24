@@ -75,7 +75,7 @@
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <inactive flag="HablarDaniBurguer" />
+          <inactive flag="CharlaBurguer" />
           <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
         </condition>
         <effect>
@@ -418,6 +418,7 @@
           <trigger-conversation idTarget="sexta_conversacion_Profesor" />
           <condition>
             <active flag="EntraProfesor" />
+            <inactive flag="HablarProfesor" />
           </condition>
         </effect>
         <not-effect>
@@ -429,8 +430,10 @@
     <characters>
       <character-ref idTarget="Dani" x="565" y="869" scale="0.589029" orientation="0" layer="5" hasInfluenceArea="no">
         <condition>
-          <inactive flag="HablarDaniBurguer" />
-          <inactive flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+          <either>
+            <inactive flag="HablarDaniBurguer" />
+            <active flag="CotilleosCompañeros" />
+          </either>
         </condition>
       </character-ref>
       <character-ref idTarget="CompañeroClase1" x="1034" y="589" scale="0.4054624" orientation="2" layer="1" hasInfluenceArea="no">
@@ -483,29 +486,56 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="743" y="3" width="477" height="403" hasInfluenceArea="no" idTarget="Clase" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="743" y="3" width="556" height="388" hasInfluenceArea="no" idTarget="Clase" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
           <active flag="Dia2" />
         </condition>
         <post-effect>
           <trigger-conversation idTarget="cuarta_conversacion_CotilleosCompañeros" />
-          <condition />
+          <condition>
+            <inactive flag="CotilleosCompañeros" />
+          </condition>
         </post-effect>
       </exit>
-      <exit rectangular="yes" x="-1" y="133" width="336" height="609" hasInfluenceArea="no" idTarget="PatioCole" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="-1" y="133" width="336" height="609" hasInfluenceArea="no" idTarget="PatioCole" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <inactive flag="CharlaBurguer" />
+        </condition>
+        <not-effect>
+          <speak-player>No es la hora del patio, mejor me voy a clase.</speak-player>
+          <condition>
+            <inactive flag="CotilleosCompañeros" />
+          </condition>
+          <speak-player>Ya han acabado las clases, me voy a casa.</speak-player>
+          <condition>
+            <active flag="HablarProfesor" />
+          </condition>
+        </not-effect>
       </exit>
       <exit rectangular="yes" x="1706" y="145" width="347" height="599" hasInfluenceArea="no" idTarget="SalonCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
-          <inactive flag="HablarDaniBurguer" />
-          <inactive flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+          <active flag="CharlaBurguer" />
+          <active flag="HablarProfesor" />
+          <active flag="HablarDaniSalidaExamen" />
         </condition>
         <not-effect>
           <speak-player>Si voy a casa llegaré tarde al burguer, debería salir por el patio.</speak-player>
           <condition>
             <inactive flag="CharlaBurguer" />
+          </condition>
+          <speak-player>Dani me ha esperado, hablaré con él antes de irme a casa.</speak-player>
+          <condition>
+            <inactive flag="HablarDaniSalidaExamen" />
+            <active flag="Dia2" />
+            <active flag="HablarProfesor" />
+          </condition>
+          <speak-player>No quiero hacer pellas, debería de ir a clase.</speak-player>
+          <condition>
+            <inactive flag="CotilleosCompañeros" />
+            <active flag="Dia2" />
           </condition>
         </not-effect>
       </exit>
@@ -537,7 +567,7 @@
       <exit rectangular="yes" x="2" y="-34" width="375" height="949" hasInfluenceArea="no" idTarget="Calle" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
-          <active flag="HablarDaniBurguer" />
+          <inactive flag="HacerDesaparecerADaniYEnviarloAlPatio" />
         </condition>
         <not-effect>
           <speak-player>He quedado con Dani en el patio, debería decirle que ya estoy lista.</speak-player>
@@ -549,7 +579,7 @@
       <character-ref idTarget="Dani" x="591" y="588" scale="0.3564471" orientation="2" layer="0" hasInfluenceArea="no">
         <condition>
           <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
-          <inactive flag="HablarDaniBurguer" />
+          <inactive flag="CharlaBurguer" />
         </condition>
       </character-ref>
     </characters>
@@ -567,8 +597,15 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="1539" y="26" width="199" height="410" hasInfluenceArea="no" idTarget="PasilloColegio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="1539" y="26" width="199" height="410" hasInfluenceArea="no" idTarget="PasilloColegio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
+        <condition>
+          <inactive flag="HablarDaniSalidaExamen" />
+        </condition>
+        <not-effect>
+          <speak-player>Es muy tarde me voy a dormir</speak-player>
+          <condition />
+        </not-effect>
       </exit>
       <exit rectangular="yes" x="-15" y="15" width="305" height="421" hasInfluenceArea="no" idTarget="HabitacionCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
@@ -580,7 +617,7 @@
           <active flag="HablarProfesor" />
         </condition>
       </character-ref>
-      <character-ref idTarget="Madre" x="1891" y="615" scale="0.2166619" orientation="0" layer="2" hasInfluenceArea="no">
+      <character-ref idTarget="Madre" x="648" y="640" scale="0.2580436" orientation="0" layer="2" hasInfluenceArea="no">
         <condition>
           <active flag="HablarProfesor" />
         </condition>
@@ -772,6 +809,8 @@
         <effect>
           <activate flag="HacerDesaparecerADaniYEnviarloAlPatio" />
           <condition />
+          <activate flag="HablarDaniBurguer" />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -782,8 +821,6 @@
       <condition />
       <end-conversation>
         <effect>
-          <activate flag="HablarDaniBurguer" />
-          <condition />
           <trigger-scene idTarget="Burguer" x="1024" y="677" transitionTime="1000" transitionType="4" />
           <condition />
           <trigger-conversation idTarget="tercera_conversacion_Burguer" />
@@ -919,6 +956,8 @@
         <effect>
           <activate flag="CotilleosCompañeros" />
           <condition />
+          <move-npc idTarget="Dani" x="300" y="300" />
+          <condition />
           <trigger-conversation idTarget="quinta_coversacion_DaniEntraAClase" />
           <condition />
         </effect>
@@ -970,14 +1009,13 @@
       <child nodeindex="3" />
     </option-node>
     <dialogue-node nodeindex="2" editor-x="505" editor-y="51">
-      <end-conversation>
-        <effect>
-          <increment var="Animo" value="1" />
-          <condition>
-            <less-equals-than var="Animo" value="5" />
-          </condition>
-        </effect>
-      </end-conversation>
+      <child nodeindex="4" />
+      <effect>
+        <increment var="Animo" value="1" />
+        <condition>
+          <less-equals-than var="Animo" value="5" />
+        </condition>
+      </effect>
     </dialogue-node>
     <dialogue-node nodeindex="3" editor-x="505" editor-y="245">
       <speak-char idTarget="Profesor">¡Oh! No, a nada. Es solo que creo que una alumna como tú destacaría mucho más en una carrera de la rama de salud. Además, sé que no sabes tratar demasiado bien con los chicos y allí no hay demasiadas mujeres.</speak-char>
@@ -985,6 +1023,53 @@
       <speak-player>Pero a mí no me gusta demasiado la biología. Me interesa mucho más la programación.</speak-player>
       <condition />
       <speak-char idTarget="Profesor">Yo solo te aconsejo pensando en lo mejor para ti. El sexo masculino suele tener mayor inclinación hacia estos ámbitos ya que tiene un mayor desarrollo de su visión espacial, y las probabilidades de éxito siempre son mayores.</speak-char>
+      <condition />
+      <child nodeindex="5" />
+      <effect>
+        <decrement var="Animo" value="1" />
+        <condition>
+          <greater-than var="Animo" value="0" />
+        </condition>
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="1234" editor-y="411">
+      <speak-char idTarget="Profesor">De todas formas, yo me lo pensaría de nuevo antes de elegir una carrera, Sandra. Tienes muchas puertas abiertas y creo que te convendría replantearte algunas cosas antes de tomar una decisión.</speak-char>
+      <condition />
+      <child nodeindex="6" />
+    </dialogue-node>
+    <option-node nodeindex="5" preListening="yes" editor-x="740" editor-y="245" x="740" y="245">
+      <speak-player>Gracias. Me marcho ya.</speak-player>
+      <condition />
+      <child nodeindex="7" />
+      <speak-player>Gracias, pero seguiré manteniendo mi opinión e intentaré entrar en esa Ingeniería.</speak-player>
+      <condition />
+      <child nodeindex="8" />
+      <speak-player>¿Usted cree?</speak-player>
+      <condition />
+      <child nodeindex="9" />
+    </option-node>
+    <option-node nodeindex="6" preListening="yes" editor-x="1469" editor-y="411" x="1469" y="411">
+      <speak-player>Lo haré.</speak-player>
+      <condition />
+      <child nodeindex="10" />
+      <speak-player>Gracias por su opinión pero es mi decisión al fin y al cabo.</speak-player>
+      <condition />
+      <child nodeindex="11" />
+    </option-node>
+    <dialogue-node nodeindex="7" editor-x="960" editor-y="245">
+      <child nodeindex="4" />
+    </dialogue-node>
+    <dialogue-node nodeindex="8" editor-x="960" editor-y="439">
+      <child nodeindex="4" />
+      <effect>
+        <increment var="Animo" value="1" />
+        <condition>
+          <less-equals-than var="Animo" value="5" />
+        </condition>
+      </effect>
+    </dialogue-node>
+    <dialogue-node nodeindex="9" editor-x="960" editor-y="633">
+      <speak-char idTarget="Profesor">Sí, lo cierto es que sí</speak-char>
       <condition />
       <child nodeindex="4" />
       <effect>
@@ -994,53 +1079,6 @@
         </condition>
       </effect>
     </dialogue-node>
-    <option-node nodeindex="4" preListening="yes" editor-x="740" editor-y="245" x="740" y="245">
-      <speak-player>Gracias. Me marcho ya.</speak-player>
-      <condition />
-      <child nodeindex="5" />
-      <speak-player>Gracias, pero seguiré manteniendo mi opinión e intentaré entrar en esa Ingeniería.</speak-player>
-      <condition />
-      <child nodeindex="6" />
-      <speak-player>¿Usted cree?</speak-player>
-      <condition />
-      <child nodeindex="7" />
-    </option-node>
-    <dialogue-node nodeindex="5" editor-x="960" editor-y="245">
-      <child nodeindex="8" />
-    </dialogue-node>
-    <dialogue-node nodeindex="6" editor-x="960" editor-y="439">
-      <child nodeindex="8" />
-      <effect>
-        <increment var="Animo" value="1" />
-        <condition>
-          <less-equals-than var="Animo" value="5" />
-        </condition>
-      </effect>
-    </dialogue-node>
-    <dialogue-node nodeindex="7" editor-x="960" editor-y="633">
-      <speak-char idTarget="Profesor">Sí, lo cierto es que sí</speak-char>
-      <condition />
-      <child nodeindex="8" />
-      <effect>
-        <decrement var="Animo" value="1" />
-        <condition>
-          <greater-than var="Animo" value="0" />
-        </condition>
-      </effect>
-    </dialogue-node>
-    <dialogue-node nodeindex="8" editor-x="1234" editor-y="411">
-      <speak-char idTarget="Profesor">De todas formas, yo me lo pensaría de nuevo antes de elegir una carrera, Sandra. Tienes muchas puertas abiertas y creo que te convendría replantearte algunas cosas antes de tomar una decisión.</speak-char>
-      <condition />
-      <child nodeindex="9" />
-    </dialogue-node>
-    <option-node nodeindex="9" preListening="yes" editor-x="1469" editor-y="411" x="1469" y="411">
-      <speak-player>Lo haré.</speak-player>
-      <condition />
-      <child nodeindex="10" />
-      <speak-player>Gracias por su opinión pero es mi decisión al fin y al cabo.</speak-player>
-      <condition />
-      <child nodeindex="11" />
-    </option-node>
     <dialogue-node nodeindex="10" editor-x="1689" editor-y="411">
       <end-conversation>
         <effect>
@@ -1082,6 +1120,8 @@
       <condition />
       <end-conversation>
         <effect>
+          <activate flag="HablarDaniSalidaExamen" />
+          <condition />
           <trigger-scene idTarget="SalonCasa" x="1024" y="498" transitionTime="2000" transitionType="5" />
           <condition />
           <trigger-conversation idTarget="octava_conversacion_Padres" />
