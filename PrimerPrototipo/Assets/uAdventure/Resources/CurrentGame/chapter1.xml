@@ -86,9 +86,11 @@
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
           <active flag="CotilleosCompañeros" />
-          <inactive flag="HablarProfesor" />
+          <inactive flag="EntraProfesor" />
         </condition>
         <effect>
+          <move-npc idTarget="Dani" x="1478" y="858" />
+          <condition />
           <trigger-conversation idTarget="quinta_coversacion_DaniEntraAClase" />
           <condition />
         </effect>
@@ -198,6 +200,9 @@
     <voice name="" synthesizeAlways="no" />
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="CotilleosCompañeros" />
+        </condition>
         <effect>
           <trigger-conversation idTarget="cuarta_conversacion_CotilleosCompañeros" />
           <condition />
@@ -298,7 +303,17 @@
     </description>
     <voice name="" synthesizeAlways="no" />
     <actions>
-      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no" />
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="HablarProfesor" />
+        </condition>
+        <effect>
+          <move-npc idTarget="Profesor" x="768" y="615" />
+          <condition />
+          <trigger-conversation idTarget="ProfesorExamen" />
+          <condition />
+        </effect>
+      </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <effect>
           <trigger-conversation idTarget="sexta_conversacion_Profesor" />
@@ -432,8 +447,9 @@
         <condition>
           <either>
             <inactive flag="HablarDaniBurguer" />
-            <active flag="CotilleosCompañeros" />
+            <active flag="Dia2" />
           </either>
+          <inactive flag="EntraProfesor" />
         </condition>
       </character-ref>
       <character-ref idTarget="CompañeroClase1" x="1034" y="589" scale="0.4054624" orientation="2" layer="1" hasInfluenceArea="no">
@@ -454,7 +470,7 @@
           <active flag="Dia2" />
         </condition>
       </character-ref>
-      <character-ref idTarget="Profesor" x="755" y="589" scale="0.3962661" orientation="2" layer="4" hasInfluenceArea="no">
+      <character-ref idTarget="Profesor" x="1700" y="629" scale="0.4355506" orientation="2" layer="4" hasInfluenceArea="no">
         <condition>
           <active flag="EntraProfesor" />
         </condition>
@@ -956,10 +972,6 @@
         <effect>
           <activate flag="CotilleosCompañeros" />
           <condition />
-          <move-npc idTarget="Dani" x="300" y="300" />
-          <condition />
-          <trigger-conversation idTarget="quinta_coversacion_DaniEntraAClase" />
-          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -968,24 +980,33 @@
     <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
       <speak-char idTarget="Dani">Buenos días, Sandra.</speak-char>
       <condition />
-      <speak-player>Buenas.</speak-player>
-      <condition />
-      <speak-player>Oye, Dani, ¿Tienes idea de lo que están hablando?</speak-player>
+      <speak-player>Buenas. Oye, Dani, ¿Tienes idea de lo que están hablando?</speak-player>
       <condition />
       <speak-char idTarget="Dani">Ugh... Ignóralos, no creo que sea nada importante.</speak-char>
+      <condition />
+      <speak-player>Pues no paran de mirarme.</speak-player>
+      <condition />
+      <speak-char idTarget="Dani">Pasa de ellos. Voy a sentarme que ya viene el profe.</speak-char>
       <condition />
       <end-conversation>
         <effect>
           <activate flag="EntraProfesor" />
           <condition />
-          <speak-char idTarget="Profesor">Buenos días, espero  que hayáis repasado el temario para la prueba de hoy. Mucha suerte a todos.</speak-char>
+          <move-npc idTarget="Profesor" x="765" y="613" />
           <condition />
-          <wait-time time="2" />
-          <condition />
-          <speak-char idTarget="Profesor">¿Queda alguien por entregar?¿No? De acuerdo, podéis iros.</speak-char>
+          <trigger-conversation idTarget="ProfesorExamen" />
           <condition />
         </effect>
       </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="ProfesorExamen">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Profesor">Espero  que hayáis repasado el temario para la prueba de hoy. Mucha suerte a todos.</speak-char>
+      <condition />
+      <speak-char idTarget="Profesor">Queda alguien por entregar?¿No? De acuerdo, podéis iros.</speak-char>
+      <condition />
+      <end-conversation />
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="sexta_conversacion_Profesor">
