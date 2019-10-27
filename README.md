@@ -11,3 +11,7 @@ Amparo Rubio Bellón
 
 Este juego cuenta la historia de Sandra, una chica que quiere estudiar ingeniería informática que tendrá que luchar contra los prejuicios de sus compañeros y profesores para lograrlo. 
 
+
+# url repositorio: https://github.com/amprubio/JS-uAdventure
+
+# url uadventure: 
