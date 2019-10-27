@@ -410,6 +410,7 @@
     </documentation>
     <resources name="No name">
       <asset type="background" uri="assets/background/Juego-portada.png" />
+      <asset type="bgmusic" uri="assets/audio/musica-de-elevador.mp3" />
     </resources>
     <name>
     </name>
@@ -432,6 +433,7 @@
     </documentation>
     <resources name="clase">
       <asset type="background" uri="assets/background/cole-aula.png" />
+      <asset type="bgmusic" uri="assets/audio/musica-de-elevador.mp3" />
     </resources>
     <name>
     </name>
@@ -442,7 +444,6 @@
         <condition>
           <active flag="HablarDaniBurguer" />
           <active flag="CogerLibros" />
-          <active flag="CharlaBurguer" />
         </condition>
         <effect>
           <trigger-conversation idTarget="sexta_conversacion_Profesor" />
@@ -460,10 +461,18 @@
           <speak-player>Tengo que recoger mis cosas antes de irme.</speak-player>
           <condition>
             <inactive flag="CogerLibros" />
-            <either>
-              <active flag="HablarDaniBurguer" />
-              <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
-            </either>
+            <active flag="HablarDaniBurguer" />
+            <inactive flag="Dia2" />
+          </condition>
+          <speak-player>Me debería sentar en mi sitio que va a empezar el examen.</speak-player>
+          <condition>
+            <active flag="EntraProfesor" />
+            <inactive flag="FinExamen" />
+          </condition>
+          <speak-player>Esta a punto de empezar el examen, mejor no me voy de clase.</speak-player>
+          <condition>
+            <active flag="Dia2" />
+            <inactive flag="EntraProfesor" />
           </condition>
         </not-effect>
       </exit>
@@ -544,6 +553,7 @@
     </documentation>
     <resources name="No name">
       <asset type="background" uri="assets/background/cole-pasillo.png" />
+      <asset type="bgmusic" uri="assets/audio/sound-school-ambience-ambiente-escuela.mp3" />
     </resources>
     <name>
     </name>
@@ -569,7 +579,7 @@
         <not-effect>
           <speak-player>No es la hora del patio, mejor me voy a clase.</speak-player>
           <condition>
-            <inactive flag="CotilleosCompañeros" />
+            <inactive flag="FinExamen" />
           </condition>
           <speak-player>Ya han acabado las clases, me voy a casa.</speak-player>
           <condition>
@@ -619,6 +629,7 @@
     </documentation>
     <resources name="No name">
       <asset type="background" uri="assets/background/cole-patio.png" />
+      <asset type="bgmusic" uri="assets/audio/ninos-jugando-en-el-recreo-ambiente-efecto-de-sonido.mp3" />
     </resources>
     <name>
     </name>
@@ -655,6 +666,7 @@
     </documentation>
     <resources name="No name">
       <asset type="background" uri="assets/background/casa-salon.png" />
+      <asset type="bgmusic" uri="assets/audio/musica-de-elevador.mp3" />
     </resources>
     <name>
     </name>
@@ -679,6 +691,12 @@
       </exit>
       <exit rectangular="yes" x="-15" y="15" width="305" height="421" hasInfluenceArea="no" idTarget="HabitacionCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
+        <effect>
+          <deactivate flag="Dia2" />
+          <condition>
+            <active flag="HablarPadres" />
+          </condition>
+        </effect>
         <post-effect>
           <speak-player>Ha sido un día demasiado largo y estoy agotada. Pensar tanto sobre mi futuro me ha agobiado bastante, pero creo que ya he tomado una decisión sobre qué hacer después de selectividad.</speak-player>
           <condition>
@@ -715,6 +733,7 @@
     </documentation>
     <resources name="">
       <asset type="background" uri="assets/background/casa-habitacion.png" />
+      <asset type="bgmusic" uri="assets/audio/musica-de-elevador.mp3" />
     </resources>
     <name>
     </name>
@@ -724,6 +743,7 @@
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
           <active flag="Dia2" />
+          <active flag="CharlaBurguer" />
         </condition>
         <not-effect>
           <speak-player>Mejor me voy a ir a la cama.</speak-player>
@@ -769,6 +789,7 @@
         <actions>
           <use needsGoTo="yes" keepDistance="35" not-effects="no">
             <condition>
+              <inactive flag="HablarPadres" />
               <inactive flag="Dia2" />
             </condition>
             <effect>
@@ -807,6 +828,7 @@
     </documentation>
     <resources name="No name">
       <asset type="background" uri="assets/background/burger.png" />
+      <asset type="bgmusic" uri="assets/audio/ruido-de-restaurante-restaurant-noise-sound-effect.mp3" />
     </resources>
     <name>
     </name>
@@ -861,6 +883,7 @@
     </documentation>
     <resources name="No name">
       <asset type="background" uri="assets/background/calle-parque.png" />
+      <asset type="bgmusic" uri="assets/audio/efectos-de-sonido-relax-pajaros-en-un-parque.mp3" />
     </resources>
     <name>
     </name>
@@ -883,6 +906,7 @@
     </documentation>
     <resources name="No name">
       <asset type="background" uri="assets/background/creditos.jpg" />
+      <asset type="bgmusic" uri="assets/audio/musica-de-elevador.mp3" />
     </resources>
     <name>
     </name>
@@ -898,6 +922,7 @@
     </documentation>
     <resources name="No name">
       <asset type="background" uri="assets/background/examen.png" />
+      <asset type="bgmusic" uri="assets/audio/reloj-minutero-efecto-de-sonido.mp3" />
     </resources>
     <name>
     </name>
@@ -1149,6 +1174,8 @@
         <effect>
           <activate flag="CotilleosCompañeros" />
           <condition />
+          <deactivate flag="CogerLibros" />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -1171,6 +1198,8 @@
           <condition />
           <speak-char idTarget="Profesor">Tomen asiento todos, por favor.</speak-char>
           <condition />
+          <deactivate flag="CogerLibros" />
+          <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
@@ -1183,6 +1212,8 @@
       <condition />
       <end-conversation>
         <effect>
+          <activate flag="CogerLibros" />
+          <condition />
           <trigger-scene idTarget="Examen" x="800" y="589" transitionTime="2000" transitionType="4" />
           <condition />
         </effect>
