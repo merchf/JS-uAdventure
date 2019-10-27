@@ -305,7 +305,7 @@
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <inactive flag="HablarProfesor" />
+          <inactive flag="FinExamen" />
         </condition>
         <effect>
           <trigger-conversation idTarget="ProfesorExamen" />
@@ -315,6 +315,7 @@
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
           <inactive flag="HablarProfesor" />
+          <active flag="DespedidaProfeExamen" />
         </condition>
         <effect>
           <trigger-conversation idTarget="sexta_conversacion_Profesor" />
@@ -323,10 +324,11 @@
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <inactive flag="FinExamen" />
+          <active flag="FinExamen" />
+          <inactive flag="DespedidaProfeExamen" />
         </condition>
         <effect>
-          <trigger-conversation idTarget="FinExamen" />
+          <trigger-conversation idTarget="ProfesorFinExamen" />
           <condition />
         </effect>
       </talk-to>
@@ -421,7 +423,7 @@
         <post-effect>
           <set-value var="Animo" value="6" />
           <condition />
-          <trigger-cutscene idTarget="Intro" />
+          <trigger-cutscene idTarget="IntroFoto" />
           <condition />
         </post-effect>
       </exit>
@@ -944,6 +946,8 @@
             <effect>
               <trigger-conversation idTarget="TranscursoExamen" />
               <condition />
+              <activate flag="FinExamen" />
+              <condition />
             </effect>
           </examine>
         </actions>
@@ -1322,7 +1326,7 @@
       <condition />
       <end-conversation>
         <effect>
-          <activate flag="FinExamen" />
+          <activate flag="DespedidaProfeExamen" />
           <condition />
         </effect>
       </end-conversation>
@@ -1731,7 +1735,7 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="video" uri="assets/video/VIDEOINICIAL.wmv" />
+      <asset type="video" uri="assets/video/VIDEOINICIAL.mp4" />
       <asset type="slides" uri="assets/special/EmptyAnimation" />
     </resources>
     <name>
@@ -1751,6 +1755,15 @@
     </documentation>
     <resources name="No name">
       <asset type="slides" uri="assets/animation/BajarAnimo.eaa.xml" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
+  <slidescene id="IntroFoto" start="no" next="go-back" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/animation/fotoIntro.eaa.xml" />
     </resources>
     <name>
     </name>
