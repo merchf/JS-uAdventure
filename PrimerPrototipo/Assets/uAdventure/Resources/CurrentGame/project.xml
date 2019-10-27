@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment> Project Configuration </comment>
-<entry key="Chapter0.Clase.X">532</entry>
-<entry key="Chapter0.Clase.Y">-33</entry>
-<entry key="Chapter0.PasilloColegio.X">551</entry>
-<entry key="Chapter0.PasilloColegio.Y">160</entry>
-<entry key="Chapter0.PatioCole.X">117</entry>
-<entry key="Chapter0.PatioCole.Y">194</entry>
-<entry key="Chapter0.SalonCasa.X">762</entry>
-<entry key="Chapter0.SalonCasa.Y">392</entry>
-<entry key="Chapter0.HabitacionCasa.X">333</entry>
-<entry key="Chapter0.HabitacionCasa.Y">384</entry>
-<entry key="Chapter0.Calle.X">-356</entry>
-<entry key="Chapter0.Calle.Y">192</entry>
-<entry key="Chapter0.Burguer.X">-268</entry>
-<entry key="Chapter0.Burguer.Y">431</entry>
+<entry key="Chapter0.Clase.X">387</entry>
+<entry key="Chapter0.Clase.Y">-34</entry>
+<entry key="Chapter0.PasilloColegio.X">215</entry>
+<entry key="Chapter0.PasilloColegio.Y">252</entry>
+<entry key="Chapter0.PatioCole.X">-293</entry>
+<entry key="Chapter0.PatioCole.Y">265</entry>
+<entry key="Chapter0.SalonCasa.X">776</entry>
+<entry key="Chapter0.SalonCasa.Y">517</entry>
+<entry key="Chapter0.HabitacionCasa.X">352</entry>
+<entry key="Chapter0.HabitacionCasa.Y">475</entry>
+<entry key="Chapter0.Calle.X">-509</entry>
+<entry key="Chapter0.Calle.Y">474</entry>
+<entry key="Chapter0.Burguer.X">-73</entry>
+<entry key="Chapter0.Burguer.Y">468</entry>
 <entry key="Chapter0.CocinaCasa.X">730</entry>
 <entry key="Chapter0.CocinaCasa.Y">460</entry>
-<entry key="Chapter0.Titulo.X">103</entry>
-<entry key="Chapter0.Titulo.Y">-10</entry>
-<entry key="Chapter0.Creditos.X">-314</entry>
-<entry key="Chapter0.Creditos.Y">-10</entry>
+<entry key="Chapter0.Titulo.X">756</entry>
+<entry key="Chapter0.Titulo.Y">234</entry>
+<entry key="Chapter0.Creditos.X">-378</entry>
+<entry key="Chapter0.Creditos.Y">4</entry>
+<entry key="Chapter0.Examen.X">837</entry>
+<entry key="Chapter0.Examen.Y">-39</entry>
+<entry key="Chapter0.FinalBueno.X">71</entry>
+<entry key="Chapter0.FinalBueno.Y">100</entry>
+<entry key="Chapter0.FinalMalo.X">80</entry>
+<entry key="Chapter0.FinalMalo.Y">-26</entry>
 </properties>

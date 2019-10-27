@@ -421,6 +421,8 @@
         <post-effect>
           <set-value var="Animo" value="6" />
           <condition />
+          <trigger-cutscene idTarget="Intro" />
+          <condition />
         </post-effect>
       </exit>
       <exit rectangular="yes" x="583" y="579" width="593" height="153" hasInfluenceArea="no" idTarget="Creditos" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
@@ -1086,12 +1088,20 @@
         <condition>
           <less-equals-than var="Animo" value="5" />
         </condition>
+        <trigger-cutscene idTarget="Animo+1" />
+        <condition>
+          <less-equals-than var="Animo" value="5" />
+        </condition>
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="4" editor-x="727" editor-y="465">
       <child nodeindex="5" />
       <effect>
         <decrement var="Animo" value="1" />
+        <condition>
+          <greater-than var="Animo" value="0" />
+        </condition>
+        <trigger-cutscene idTarget="Animo-1" />
         <condition>
           <greater-than var="Animo" value="0" />
         </condition>
@@ -1134,6 +1144,10 @@
         <condition>
           <less-equals-than var="Animo" value="5" />
         </condition>
+        <trigger-cutscene idTarget="Animo+1" />
+        <condition>
+          <less-equals-than var="Animo" value="5" />
+        </condition>
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="8" editor-x="1771" editor-y="272">
@@ -1154,6 +1168,10 @@
       <child nodeindex="8" />
       <effect>
         <decrement var="Animo" value="1" />
+        <condition>
+          <greater-than var="Animo" value="0" />
+        </condition>
+        <trigger-cutscene idTarget="Animo-1" />
         <condition>
           <greater-than var="Animo" value="0" />
         </condition>
@@ -1337,6 +1355,10 @@
         <condition>
           <less-equals-than var="Animo" value="5" />
         </condition>
+        <trigger-cutscene idTarget="Animo+1" />
+        <condition>
+          <less-equals-than var="Animo" value="5" />
+        </condition>
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="3" editor-x="505" editor-y="245">
@@ -1349,6 +1371,10 @@
       <child nodeindex="5" />
       <effect>
         <decrement var="Animo" value="1" />
+        <condition>
+          <greater-than var="Animo" value="0" />
+        </condition>
+        <trigger-cutscene idTarget="Animo-1" />
         <condition>
           <greater-than var="Animo" value="0" />
         </condition>
@@ -1388,6 +1414,10 @@
         <condition>
           <less-equals-than var="Animo" value="5" />
         </condition>
+        <trigger-cutscene idTarget="Animo+1" />
+        <condition>
+          <less-equals-than var="Animo" value="5" />
+        </condition>
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="9" editor-x="960" editor-y="633">
@@ -1396,6 +1426,10 @@
       <child nodeindex="4" />
       <effect>
         <decrement var="Animo" value="1" />
+        <condition>
+          <greater-than var="Animo" value="0" />
+        </condition>
+        <trigger-cutscene idTarget="Animo-1" />
         <condition>
           <greater-than var="Animo" value="0" />
         </condition>
@@ -1408,6 +1442,10 @@
           <condition>
             <greater-than var="Animo" value="0" />
           </condition>
+          <trigger-cutscene idTarget="Animo-1" />
+          <condition>
+            <greater-than var="Animo" value="0" />
+          </condition>
           <activate flag="HablarProfesor" />
           <condition />
         </effect>
@@ -1417,6 +1455,10 @@
       <end-conversation>
         <effect>
           <increment var="Animo" value="1" />
+          <condition>
+            <less-equals-than var="Animo" value="5" />
+          </condition>
+          <trigger-cutscene idTarget="Animo+1" />
           <condition>
             <less-equals-than var="Animo" value="5" />
           </condition>
@@ -1483,12 +1525,20 @@
         <condition>
           <greater-than var="Animo" value="0" />
         </condition>
+        <trigger-cutscene idTarget="Animo-1" />
+        <condition>
+          <greater-than var="Animo" value="0" />
+        </condition>
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="3" editor-x="505" editor-y="244">
       <child nodeindex="4" />
       <effect>
         <increment var="Animo" value="1" />
+        <condition>
+          <less-equals-than var="Animo" value="5" />
+        </condition>
+        <trigger-cutscene idTarget="Animo+1" />
         <condition>
           <less-equals-than var="Animo" value="5" />
         </condition>
@@ -1521,6 +1571,10 @@
         <condition>
           <less-equals-than var="Animo" value="5" />
         </condition>
+        <trigger-cutscene idTarget="Animo+1" />
+        <condition>
+          <less-equals-than var="Animo" value="5" />
+        </condition>
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="7" editor-x="1372" editor-y="277">
@@ -1534,6 +1588,10 @@
       <child nodeindex="7" />
       <effect>
         <decrement var="Animo" value="1" />
+        <condition>
+          <greater-than var="Animo" value="0" />
+        </condition>
+        <trigger-cutscene idTarget="Animo-1" />
         <condition>
           <greater-than var="Animo" value="0" />
         </condition>
@@ -1554,6 +1612,10 @@
         <condition>
           <less-equals-than var="Animo" value="5" />
         </condition>
+        <trigger-cutscene idTarget="Animo+1" />
+        <condition>
+          <less-equals-than var="Animo" value="5" />
+        </condition>
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="11" editor-x="1817" editor-y="390">
@@ -1562,6 +1624,10 @@
       <child nodeindex="12" />
       <effect>
         <decrement var="Animo" value="1" />
+        <condition>
+          <greater-than var="Animo" value="0" />
+        </condition>
+        <trigger-cutscene idTarget="Animo-1" />
         <condition>
           <greater-than var="Animo" value="0" />
         </condition>
@@ -1657,6 +1723,34 @@
     </documentation>
     <resources name="No name">
       <asset type="slides" uri="assets/animation/dormir.eaa.xml" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
+  <videoscene canSkip="no" id="Intro" start="no" next="go-back" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="video" uri="assets/video/VIDEOINICIAL.wmv" />
+      <asset type="slides" uri="assets/special/EmptyAnimation" />
+    </resources>
+    <name>
+    </name>
+  </videoscene>
+  <slidescene id="Animo+1" start="no" next="go-back" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/animation/SubirAnimo.eaa.xml" />
+    </resources>
+    <name>
+    </name>
+  </slidescene>
+  <slidescene id="Animo-1" start="no" next="go-back" class="accesible" type="cutscene">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="slides" uri="assets/animation/BajarAnimo.eaa.xml" />
     </resources>
     <name>
     </name>
