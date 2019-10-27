@@ -315,8 +315,8 @@
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
+          <active flag="FinExamen" />
           <inactive flag="HablarProfesor" />
-          <active flag="DespedidaProfeExamen" />
         </condition>
         <effect>
           <trigger-conversation idTarget="sexta_conversacion_Profesor" />
@@ -756,14 +756,12 @@
         <not-effect>
           <speak-player>Mejor me voy a ir a la cama.</speak-player>
           <condition>
-            <active flag="Dia2" />
-            <active flag="CogerDinero" />
+            <inactive flag="Dia2" />
           </condition>
           <speak-player>Le debo dinero a Dani de ayer. Voy a buscar la cartera antes de irme.</speak-player>
           <condition>
             <active flag="Dia2" />
             <inactive flag="CogerDinero" />
-            <inactive flag="CotilleosCompañeros" />
           </condition>
         </not-effect>
       </exit>
@@ -1267,7 +1265,7 @@
       <condition />
       <speak-player>Por cierto, toma que te debía 5€ de ayer.</speak-player>
       <condition />
-      <speak-player>¡Ah guay, gracias!  Voy a sentarme que ya viene el profe.</speak-player>
+      <speak-char idTarget="Dani">¡Ah guay, gracias!  Voy a sentarme que ya viene el profe.</speak-char>
       <condition />
       <end-conversation>
         <effect>
@@ -1923,6 +1921,8 @@
         </condition>
         <effect>
           <speak-player>Ya he cogido los 5€</speak-player>
+          <condition />
+          <activate flag="CogerDinero" />
           <condition />
         </effect>
       </examine>
