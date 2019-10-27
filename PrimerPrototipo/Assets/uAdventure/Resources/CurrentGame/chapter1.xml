@@ -751,11 +751,20 @@
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
           <active flag="Dia2" />
-          <active flag="CharlaBurguer" />
+          <active flag="CogerDinero" />
         </condition>
         <not-effect>
           <speak-player>Mejor me voy a ir a la cama.</speak-player>
-          <condition />
+          <condition>
+            <active flag="Dia2" />
+            <active flag="CogerDinero" />
+          </condition>
+          <speak-player>Le debo dinero a Dani de ayer. Voy a buscar la cartera antes de irme.</speak-player>
+          <condition>
+            <active flag="Dia2" />
+            <inactive flag="CogerDinero" />
+            <inactive flag="CotilleosCompañeros" />
+          </condition>
         </not-effect>
       </exit>
     </exits>
@@ -922,6 +931,44 @@
     <exits>
       <exit rectangular="yes" x="284" y="753" width="282" height="116" hasInfluenceArea="no" idTarget="Titulo" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
+        <post-effect>
+          <set-value var="Animo" value="6" />
+          <condition />
+          <deactivate flag="CharlaBurguer" />
+          <condition />
+          <deactivate flag="CogerLibros" />
+          <condition />
+          <deactivate flag="CogerLlaves" />
+          <condition />
+          <deactivate flag="CotilleosCompañeros" />
+          <condition />
+          <deactivate flag="DespedidaProfeExamen" />
+          <condition />
+          <deactivate flag="DespedidaProfeExamen" />
+          <condition />
+          <deactivate flag="Dia2" />
+          <condition />
+          <deactivate flag="EntraProfesor" />
+          <condition />
+          <deactivate flag="FinExamen" />
+          <condition />
+          <deactivate flag="HablarDaniBurguer" />
+          <condition />
+          <deactivate flag="HablarDaniSalidaExamen" />
+          <condition />
+          <deactivate flag="HablarPadres" />
+          <condition />
+          <deactivate flag="HablarProfesor" />
+          <condition />
+          <deactivate flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+          <condition />
+          <deactivate flag="QuedarDaniPatio" />
+          <condition />
+          <deactivate flag="SentarsePupitre" />
+          <condition />
+          <deactivate flag="CogerDinero" />
+          <condition />
+        </post-effect>
       </exit>
     </exits>
   </scene>
@@ -1216,7 +1263,11 @@
       <condition />
       <speak-player>Pues no paran de mirarme.</speak-player>
       <condition />
-      <speak-char idTarget="Dani">Pasa de ellos. Voy a sentarme que ya viene el profe.</speak-char>
+      <speak-char idTarget="Dani">Pasa de ellos.</speak-char>
+      <condition />
+      <speak-player>Por cierto, toma que te debía 5€ de ayer.</speak-player>
+      <condition />
+      <speak-player>¡Ah guay, gracias!  Voy a sentarme que ya viene el profe.</speak-player>
       <condition />
       <end-conversation>
         <effect>
@@ -1865,17 +1916,16 @@
       </detailed>
     </description>
     <actions>
-      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+      <examine needsGoTo="no" keepDistance="0" not-effects="no">
         <condition>
           <active flag="Dia2" />
+          <inactive flag="CogerDinero" />
         </condition>
         <effect>
-          <remove-element idTarget="Cartera" />
-          <condition />
-          <generate-object idTarget="Cartera" />
+          <speak-player>Ya he cogido los 5€</speak-player>
           <condition />
         </effect>
-      </grab>
+      </examine>
     </actions>
   </object>
 </eAdventure>
