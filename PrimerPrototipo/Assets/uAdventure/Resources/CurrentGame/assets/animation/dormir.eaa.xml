@@ -1,9 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE animation PUBLIC "SYSTEM" "animation.dtd">
-<animation id="dormir.eaa.xml" usetransitions="yes" slides="no">
+<animation id="dormir.eaa.xml" usetransitions="yes" slides="yes">
   <documentation />
   <transition type="0" time="0" />
-  <frame uri="assets/animation/casa-habitacion-dormirConMensaje.png" type="image" time="40" waitforclick="no" soundUri="" maxSoundTime="1000">
+  <frame uri="assets/animation/despertarseDia2.png" type="image" time="40" waitforclick="no" soundUri="" maxSoundTime="1000">
+    <documentation>
+    </documentation>
+  </frame>
+  <transition type="0" time="0" />
+  <frame uri="assets/animation/casa-habitacion-dormir.png" type="image" time="40" waitforclick="no" soundUri="" maxSoundTime="1000">
     <documentation>
     </documentation>
   </frame>

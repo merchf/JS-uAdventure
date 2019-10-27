@@ -75,8 +75,8 @@
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
-          <inactive flag="CharlaBurguer" />
           <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+          <inactive flag="QuedarDaniPatio" />
         </condition>
         <effect>
           <trigger-conversation idTarget="segunda_conversacion_PatioIrAlBurguer" />
@@ -308,15 +308,25 @@
           <inactive flag="HablarProfesor" />
         </condition>
         <effect>
-          <move-npc idTarget="Profesor" x="768" y="615" />
-          <condition />
           <trigger-conversation idTarget="ProfesorExamen" />
           <condition />
         </effect>
       </talk-to>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="HablarProfesor" />
+        </condition>
         <effect>
           <trigger-conversation idTarget="sexta_conversacion_Profesor" />
+          <condition />
+        </effect>
+      </talk-to>
+      <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="FinExamen" />
+        </condition>
+        <effect>
+          <trigger-conversation idTarget="FinExamen" />
           <condition />
         </effect>
       </talk-to>
@@ -385,6 +395,9 @@
     <voice name="" synthesizeAlways="no" />
     <actions>
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <inactive flag="HablarPadres" />
+        </condition>
         <effect>
           <trigger-conversation idTarget="octava_conversacion_Padres" />
           <condition />
@@ -396,18 +409,21 @@
     <documentation>
     </documentation>
     <resources name="No name">
-      <asset type="background" uri="assets/special/EmptyBackground.png" />
+      <asset type="background" uri="assets/background/Juego-portada.png" />
     </resources>
     <name>
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="339" y="268" width="100" height="100" hasInfluenceArea="no" idTarget="Clase" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="427" y="333" width="640" height="142" hasInfluenceArea="no" idTarget="Clase" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
         <post-effect>
           <set-value var="Animo" value="6" />
           <condition />
         </post-effect>
+      </exit>
+      <exit rectangular="yes" x="583" y="579" width="593" height="153" hasInfluenceArea="no" idTarget="Creditos" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
   </scene>
@@ -424,26 +440,43 @@
       <exit rectangular="yes" x="1811" y="188" width="117" height="422" hasInfluenceArea="no" idTarget="PasilloColegio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
-          <either>
-            <active flag="HablarDaniBurguer" />
-            <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
-          </either>
+          <active flag="HablarDaniBurguer" />
+          <active flag="CogerLibros" />
+          <active flag="CharlaBurguer" />
         </condition>
         <effect>
           <trigger-conversation idTarget="sexta_conversacion_Profesor" />
           <condition>
-            <active flag="EntraProfesor" />
+            <active flag="FinExamen" />
             <inactive flag="HablarProfesor" />
           </condition>
         </effect>
         <not-effect>
           <speak-player>Debería hablar con Dani para ver que plan tienen hoy.</speak-player>
-          <condition />
+          <condition>
+            <inactive flag="HablarDaniBurguer" />
+            <inactive flag="CharlaBurguer" />
+          </condition>
+          <speak-player>Tengo que recoger mis cosas antes de irme.</speak-player>
+          <condition>
+            <inactive flag="CogerLibros" />
+            <either>
+              <active flag="HablarDaniBurguer" />
+              <active flag="HacerDesaparecerADaniYEnviarloAlPatio" />
+            </either>
+          </condition>
         </not-effect>
       </exit>
     </exits>
+    <objects>
+      <object-ref idTarget="Libros" x="1574" y="665" scale="0.2538317" layer="5" hasInfluenceArea="no">
+        <condition>
+          <inactive flag="CogerLibros" />
+        </condition>
+      </object-ref>
+    </objects>
     <characters>
-      <character-ref idTarget="Dani" x="565" y="869" scale="0.589029" orientation="0" layer="5" hasInfluenceArea="no">
+      <character-ref idTarget="Dani" x="565" y="869" scale="0.589029" orientation="0" layer="6" hasInfluenceArea="no">
         <condition>
           <either>
             <inactive flag="HablarDaniBurguer" />
@@ -470,7 +503,7 @@
           <active flag="Dia2" />
         </condition>
       </character-ref>
-      <character-ref idTarget="Profesor" x="1700" y="629" scale="0.4355506" orientation="2" layer="4" hasInfluenceArea="no">
+      <character-ref idTarget="Profesor" x="1664" y="599" scale="0.4355506" orientation="0" layer="4" hasInfluenceArea="no">
         <condition>
           <active flag="EntraProfesor" />
         </condition>
@@ -486,6 +519,20 @@
           <detailed>
           </detailed>
         </description>
+        <actions>
+          <use needsGoTo="yes" keepDistance="35" not-effects="no">
+            <condition>
+              <active flag="EntraProfesor" />
+              <inactive flag="FinExamen" />
+            </condition>
+            <effect>
+              <move-npc idTarget="Profesor" x="768" y="615" />
+              <condition />
+              <trigger-conversation idTarget="ProfesorExamen" />
+              <condition />
+            </effect>
+          </use>
+        </actions>
       </active-area>
     </active-areas>
     <atrezzo>
@@ -534,7 +581,7 @@
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
           <active flag="CharlaBurguer" />
-          <active flag="HablarProfesor" />
+          <active flag="FinExamen" />
           <active flag="HablarDaniSalidaExamen" />
         </condition>
         <not-effect>
@@ -550,7 +597,7 @@
           </condition>
           <speak-player>No quiero hacer pellas, debería de ir a clase.</speak-player>
           <condition>
-            <inactive flag="CotilleosCompañeros" />
+            <inactive flag="FinExamen" />
             <active flag="Dia2" />
           </condition>
         </not-effect>
@@ -616,24 +663,44 @@
       <exit rectangular="yes" x="1539" y="26" width="199" height="410" hasInfluenceArea="no" idTarget="PasilloColegio" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="yes">
         <exit-look text="" cursor-path="" sound-path="" />
         <condition>
-          <inactive flag="HablarDaniSalidaExamen" />
+          <active flag="CogerLlaves" />
+          <inactive flag="HablarPadres" />
         </condition>
         <not-effect>
           <speak-player>Es muy tarde me voy a dormir</speak-player>
-          <condition />
+          <condition>
+            <active flag="HablarPadres" />
+          </condition>
+          <speak-player>No he cogido las llaves. Menos mal que me he dado cuenta antes de salir. Voy a por ellas.</speak-player>
+          <condition>
+            <inactive flag="CogerLlaves" />
+          </condition>
         </not-effect>
       </exit>
       <exit rectangular="yes" x="-15" y="15" width="305" height="421" hasInfluenceArea="no" idTarget="HabitacionCasa" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
+        <post-effect>
+          <speak-player>Ha sido un día demasiado largo y estoy agotada. Pensar tanto sobre mi futuro me ha agobiado bastante, pero creo que ya he tomado una decisión sobre qué hacer después de selectividad.</speak-player>
+          <condition>
+            <active flag="HablarPadres" />
+          </condition>
+        </post-effect>
       </exit>
     </exits>
+    <objects>
+      <object-ref idTarget="Llaves" x="1106" y="564" scale="0.05705473" layer="1" hasInfluenceArea="no">
+        <condition>
+          <active flag="CharlaBurguer" />
+        </condition>
+      </object-ref>
+    </objects>
     <characters>
-      <character-ref idTarget="Padre" x="831" y="500" scale="0.1691614" orientation="0" layer="1" hasInfluenceArea="no">
+      <character-ref idTarget="Padre" x="831" y="500" scale="0.1691614" orientation="0" layer="2" hasInfluenceArea="no">
         <condition>
           <active flag="HablarProfesor" />
         </condition>
       </character-ref>
-      <character-ref idTarget="Madre" x="648" y="640" scale="0.2580436" orientation="0" layer="2" hasInfluenceArea="no">
+      <character-ref idTarget="Madre" x="648" y="640" scale="0.2580436" orientation="0" layer="3" hasInfluenceArea="no">
         <condition>
           <active flag="HablarProfesor" />
         </condition>
@@ -659,13 +726,25 @@
           <active flag="Dia2" />
         </condition>
         <not-effect>
-          <speak-player>Mejor me voy a ir a la cama, que estoy muy cansada</speak-player>
+          <speak-player>Mejor me voy a ir a la cama.</speak-player>
           <condition />
         </not-effect>
       </exit>
     </exits>
+    <objects>
+      <object-ref idTarget="Bolso" x="698" y="513" scale="0.1583304" layer="1" hasInfluenceArea="no">
+        <condition>
+          <active flag="Dia2" />
+        </condition>
+      </object-ref>
+      <object-ref idTarget="Cartera" x="567" y="372" scale="0.08643871" layer="2" hasInfluenceArea="no">
+        <condition>
+          <active flag="Dia2" />
+        </condition>
+      </object-ref>
+    </objects>
     <active-areas>
-      <active-area id="ordenador" rectangular="yes" x="783" y="270" width="159" height="100" hasInfluenceArea="no" behaviour="normal">
+      <active-area id="ordenador" rectangular="yes" x="774" y="267" width="187" height="100" hasInfluenceArea="no" behaviour="normal">
         <description>
           <name>
           </name>
@@ -676,6 +755,9 @@
         </description>
       </active-area>
       <active-area id="Cama" rectangular="yes" x="1557" y="619" width="483" height="268" hasInfluenceArea="no" behaviour="normal">
+        <condition>
+          <active flag="CharlaBurguer" />
+        </condition>
         <description>
           <name>
           </name>
@@ -686,13 +768,31 @@
         </description>
         <actions>
           <use needsGoTo="yes" keepDistance="35" not-effects="no">
+            <condition>
+              <inactive flag="Dia2" />
+            </condition>
             <effect>
-              <speak-player>Estoy cansada, voy a dormir.</speak-player>
+              <speak-player>A dormir.</speak-player>
               <condition />
               <activate flag="Dia2" />
               <condition />
               <trigger-cutscene idTarget="Dormir" />
               <condition />
+            </effect>
+          </use>
+          <use needsGoTo="yes" keepDistance="35" not-effects="no">
+            <condition>
+              <active flag="HablarPadres" />
+            </condition>
+            <effect>
+              <trigger-scene idTarget="FinalBueno" x="640" y="540" transitionTime="2000" transitionType="4" />
+              <condition>
+                <greater-equals-than var="Animo" value="3" />
+              </condition>
+              <trigger-scene idTarget="FinalMalo" x="600" y="423" transitionTime="2000" transitionType="4" />
+              <condition>
+                <less-equals-than var="Animo" value="2" />
+              </condition>
             </effect>
           </use>
         </actions>
@@ -778,6 +878,81 @@
       <atrezzo-ref idTarget="IndicadorAnimo" x="1024" y="264" scale="1" layer="0" />
     </atrezzo>
   </scene>
+  <scene id="Creditos" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/creditos.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="88" y="781" width="282" height="116" hasInfluenceArea="no" idTarget="Titulo" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
+  <scene id="Examen" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/examen.png" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <active-areas>
+      <active-area id="Examen2" rectangular="yes" x="494" y="38" width="592" height="697" hasInfluenceArea="no" behaviour="normal">
+        <description>
+          <name>
+          </name>
+          <brief>
+          </brief>
+          <detailed>
+          </detailed>
+        </description>
+        <actions>
+          <examine needsGoTo="no" keepDistance="0" not-effects="no">
+            <effect>
+              <trigger-conversation idTarget="TranscursoExamen" />
+              <condition />
+            </effect>
+          </examine>
+        </actions>
+      </active-area>
+    </active-areas>
+  </scene>
+  <scene id="FinalBueno" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Final Bueno.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="275" y="185" width="634" height="307" hasInfluenceArea="no" idTarget="Creditos" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
+  <scene id="FinalMalo" start="no" playerLayer="-1" playerScale="1" class="accesible" type="area">
+    <documentation>
+    </documentation>
+    <resources name="No name">
+      <asset type="background" uri="assets/background/Final malo.jpg" />
+    </resources>
+    <name>
+    </name>
+    <default-initial-position x="400" y="450" />
+    <exits>
+      <exit rectangular="yes" x="278" y="117" width="616" height="318" hasInfluenceArea="no" idTarget="Creditos" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+        <exit-look text="" cursor-path="" sound-path="" />
+      </exit>
+    </exits>
+  </scene>
   <graph-conversation id="primera_conversacion_Dani">
     <dialogue-node nodeindex="0" editor-x="75" editor-y="40">
       <speak-char idTarget="Dani">¡Hey, Sandra! Menos mal que ya han terminado las clases, he estado a punto de dormirme tres veces.</speak-char>
@@ -837,7 +1012,9 @@
       <condition />
       <end-conversation>
         <effect>
-          <trigger-scene idTarget="Burguer" x="1024" y="677" transitionTime="1000" transitionType="4" />
+          <activate flag="QuedarDaniPatio" />
+          <condition />
+          <trigger-scene idTarget="Burguer" x="1024" y="677" transitionTime="2000" transitionType="4" />
           <condition />
           <trigger-conversation idTarget="tercera_conversacion_Burguer" />
           <condition />
@@ -992,21 +1169,114 @@
         <effect>
           <activate flag="EntraProfesor" />
           <condition />
-          <move-npc idTarget="Profesor" x="765" y="613" />
-          <condition />
-          <trigger-conversation idTarget="ProfesorExamen" />
+          <speak-char idTarget="Profesor">Tomen asiento todos, por favor.</speak-char>
           <condition />
         </effect>
       </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="ProfesorExamen">
+    <dialogue-node nodeindex="0" editor-x="47" editor-y="52">
+      <speak-char idTarget="Profesor">Espero  que hayáis repasado el temario para la prueba de hoy. Mucha suerte a todos. </speak-char>
+      <condition />
+      <speak-char idTarget="Profesor">Recordad poner el nombre y guardad silencio. Tenéis una hora.</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <trigger-scene idTarget="Examen" x="800" y="589" transitionTime="2000" transitionType="4" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="TranscursoExamen">
     <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
-      <speak-char idTarget="Profesor">Espero  que hayáis repasado el temario para la prueba de hoy. Mucha suerte a todos.</speak-char>
+      <speak-player>Vale.... comenzamos.</speak-player>
       <condition />
-      <speak-char idTarget="Profesor">Queda alguien por entregar?¿No? De acuerdo, podéis iros.</speak-char>
+      <speak-player>Mmmmm, vale tipo test. Voy a leerme todas las preguntas primero.</speak-player>
       <condition />
-      <end-conversation />
+      <speak-player>...</speak-player>
+      <condition />
+      <speak-player>...</speak-player>
+      <condition />
+      <speak-player>Esta controlado. La primera fijo es la a.</speak-player>
+      <condition />
+      <speak-player>b, b, d</speak-player>
+      <condition />
+      <speak-player>Esta no estoy segura. ¿Que hago me la juego o no contesto?</speak-player>
+      <condition />
+      <child nodeindex="1" />
+    </dialogue-node>
+    <option-node nodeindex="1" preListening="yes" editor-x="340" editor-y="76" x="340" y="76">
+      <speak-player>Mejor no respondo que los fallos restan.</speak-player>
+      <condition />
+      <child nodeindex="2" />
+      <speak-player>Venga me la juego. La c todavía no ha salido, voy a poner esa.</speak-player>
+      <condition />
+      <child nodeindex="3" />
+    </option-node>
+    <dialogue-node nodeindex="2" editor-x="587" editor-y="70">
+      <speak-player>Voy a  mirar si consigo alguna por descarte.</speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </dialogue-node>
+    <dialogue-node nodeindex="3" editor-x="560" editor-y="264">
+      <speak-player>Y la siguiente por descarte tiene que ser la a.</speak-player>
+      <condition />
+      <child nodeindex="4" />
+    </dialogue-node>
+    <dialogue-node nodeindex="4" editor-x="822" editor-y="70">
+      <speak-player>Pfff, las que estoy convencida que están bien sumaría un aprobado. No se si responder alguna al azar. </speak-player>
+      <condition />
+      <child nodeindex="5" />
+    </dialogue-node>
+    <option-node nodeindex="5" random="yes" preListening="yes" editor-x="1057" editor-y="70" x="1057" y="70">
+      <speak-player>Venga esta pregunta tiene que ser la d.</speak-player>
+      <condition />
+      <child nodeindex="6" />
+      <speak-player>Mejor lo entrego ya.</speak-player>
+      <condition />
+      <child nodeindex="7" />
+    </option-node>
+    <dialogue-node nodeindex="6" editor-x="1354" editor-y="71">
+      <speak-player>Ya lo he acabado. Voy a entregarlo.</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <trigger-scene idTarget="Clase" x="1024" y="675" transitionTime="2000" transitionType="1" />
+          <condition />
+          <move-npc idTarget="Profesor" x="768" y="615" />
+          <condition />
+          <trigger-conversation idTarget="ProfesorFinExamen" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+    <dialogue-node nodeindex="7" editor-x="1292" editor-y="271">
+      <speak-player>Justo a tiempo.</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <trigger-scene idTarget="Clase" x="1024" y="675" transitionTime="2000" transitionType="4" />
+          <condition />
+          <trigger-conversation idTarget="ProfesorFinExamen" />
+          <condition />
+        </effect>
+      </end-conversation>
+    </dialogue-node>
+  </graph-conversation>
+  <graph-conversation id="ProfesorFinExamen">
+    <dialogue-node nodeindex="0" editor-x="50" editor-y="50">
+      <speak-char idTarget="Profesor">¿Ya habéis entregado todos?</speak-char>
+      <condition />
+      <speak-char idTarget="Profesor">¿Si? Perfecto, nos vemos el próximo día.</speak-char>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="FinExamen" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <graph-conversation id="sexta_conversacion_Profesor">
@@ -1170,6 +1440,12 @@
       <child nodeindex="3" />
     </option-node>
     <dialogue-node nodeindex="2" editor-x="505" editor-y="50">
+      <speak-char idTarget="Madre">Sandra, estos meses son una etapa muy importante y decisiva para ti. Cuenta con nosotros para lo que necesites.</speak-char>
+      <condition />
+      <speak-player>...</speak-player>
+      <condition />
+      <speak-player>Tengo dudas con mi futuro.</speak-player>
+      <condition />
       <child nodeindex="4" />
       <effect>
         <decrement var="Animo" value="1" />
@@ -1250,6 +1526,8 @@
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="11" editor-x="1817" editor-y="390">
+      <speak-char idTarget="Padre">No digas tonterias. Nunca serás un bicho raro y menos a causa de lo que elijas para estudiar.</speak-char>
+      <condition />
       <child nodeindex="12" />
       <effect>
         <decrement var="Animo" value="1" />
@@ -1259,13 +1537,20 @@
       </effect>
     </dialogue-node>
     <dialogue-node nodeindex="12" editor-x="2057" editor-y="301">
-      <speak-player>Estoy muy cansada, me voy a mi cuarto.</speak-player>
+      <speak-player>Bueno... Estoy muy cansada, me voy a mi cuarto.</speak-player>
       <condition />
       <speak-char idTarget="Madre">Vale hija, buenas noches.</speak-char>
       <condition />
       <speak-char idTarget="Padre">Buenas noches cariño.</speak-char>
       <condition />
-      <end-conversation />
+      <speak-player>Hasta mañana.</speak-player>
+      <condition />
+      <end-conversation>
+        <effect>
+          <activate flag="HablarPadres" />
+          <condition />
+        </effect>
+      </end-conversation>
     </dialogue-node>
   </graph-conversation>
   <atrezzoobject id="IndicadorAnimo">
@@ -1345,4 +1630,110 @@
     <name>
     </name>
   </slidescene>
+  <object id="Llaves" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/llaves.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Llaves" />
+          <condition />
+          <generate-object idTarget="Llaves" />
+          <condition />
+          <activate flag="CogerLlaves" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="Libros" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/Libros-Mesa.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="HablarDaniBurguer" />
+        </condition>
+        <effect>
+          <remove-element idTarget="Libros" />
+          <condition />
+          <generate-object idTarget="Libros" />
+          <condition />
+          <activate flag="CogerLibros" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="Bolso" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/bolso.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <effect>
+          <remove-element idTarget="Bolso" />
+          <condition />
+          <generate-object idTarget="Bolso" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
+  <object id="Cartera" returnsWhenDragged="yes" behaviour="normal" resources-transition-time="0">
+    <resources name="No name">
+      <asset type="image" uri="assets/image/cartera.png" />
+      <asset type="icon" uri="assets/special/EmptyIcon.png" />
+    </resources>
+    <description>
+      <name>
+      </name>
+      <brief>
+      </brief>
+      <detailed>
+      </detailed>
+    </description>
+    <actions>
+      <grab needsGoTo="yes" keepDistance="35" not-effects="no">
+        <condition>
+          <active flag="Dia2" />
+        </condition>
+        <effect>
+          <remove-element idTarget="Cartera" />
+          <condition />
+          <generate-object idTarget="Cartera" />
+          <condition />
+        </effect>
+      </grab>
+    </actions>
+  </object>
 </eAdventure>
