@@ -306,6 +306,7 @@
       <talk-to needsGoTo="yes" keepDistance="35" not-effects="no">
         <condition>
           <inactive flag="FinExamen" />
+          <active flag="SentarsePupitre" />
         </condition>
         <effect>
           <trigger-conversation idTarget="ProfesorExamen" />
@@ -470,8 +471,9 @@
           </condition>
           <speak-player>Me debería sentar en mi sitio que va a empezar el examen.</speak-player>
           <condition>
-            <active flag="EntraProfesor" />
             <inactive flag="FinExamen" />
+            <inactive flag="SentarsePupitre" />
+            <active flag="EntraProfesor" />
           </condition>
           <speak-player>Esta a punto de empezar el examen, mejor no me voy de clase.</speak-player>
           <condition>
@@ -540,6 +542,8 @@
             </condition>
             <effect>
               <move-npc idTarget="Profesor" x="768" y="615" />
+              <condition />
+              <activate flag="SentarsePupitre" />
               <condition />
               <trigger-conversation idTarget="ProfesorExamen" />
               <condition />
@@ -916,7 +920,7 @@
     </name>
     <default-initial-position x="400" y="450" />
     <exits>
-      <exit rectangular="yes" x="88" y="781" width="282" height="116" hasInfluenceArea="no" idTarget="Titulo" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
+      <exit rectangular="yes" x="284" y="753" width="282" height="116" hasInfluenceArea="no" idTarget="Titulo" destinyY="-2147483648" destinyX="-2147483648" destinyScale="1" transitionType="0" transitionTime="0" not-effects="no">
         <exit-look text="" cursor-path="" sound-path="" />
       </exit>
     </exits>
