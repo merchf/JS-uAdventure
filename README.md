@@ -55,22 +55,28 @@ Una vez en la pantalla de créditos, podemos acceder al menú principal  clicand
  - **Jugabilidad**
  
 	 3.1. **Mecánica**
+
 	 Puesto que el control es mediante un ratón las mecánicas son interactuar con los personajes o con objetos.
 	 
 	 3.2.**Dinámica**
+
 	 En este juego no hay una forma explícita de perder, sin embargo el juego cuenta con dos finales, uno en el que Sandra logra su sueño, y otra en la que no lo consigue.
 	 
 	 3.3.**Estética**
+
 	 Se sigue una estética minimalista, donde destacan más las formas en contraste con el fondo.
 	 ![escenario burguer](https://github.com/amprubio/JS-uAdventure/blob/master/PrimerPrototipo/Recursos/escenarios/burger.png?raw=true)![escenario habitación casa](https://github.com/amprubio/JS-uAdventure/blob/master/PrimerPrototipo/Recursos/escenarios/casa-habitacion.png?raw=true)
  - **Contenido**
 	 4.1.**Historia**
+
 	 Sandra es una alumna de segundo de bachillerato que está pensando en hacer ingeniería informática, pero tanto sus compañeros, el profesor y sus padres le hacen dudar con sus opiniones de lo que de verdad quiere estudiar. A medida que vaya hablando con más personajes su ánimo irá aumentando o bajando dependiendo de cómo responda a esas críticas.
 	 
 	 4.2.**Niveles**
+
 	 “Apto” no tiene niveles salvo por la prueba final, pero por lo demás es un juego conversacional en el que la dinámica es no desanimarse por los comentarios de otros personajes.
 	 
 	 4.3. **Personajes**
+
 	 
  - El personaje principal es Sandra, chica de 18 años que quiere dedicarse a la informática.
  -De izquierda a derecha tenemos a el mejor amigo de Sandra llamado Dani que será un apoyo a lo largo del juego, aunque al principio no se muestre muy de acuerdo.  Julia y Mario son los compañeros de clase con los que Sandra tiene más confianza.
@@ -114,6 +120,7 @@ Una vez en la pantalla de créditos, podemos acceder al menú principal  clicand
 Las barra de ánimo muestra el ánimo del personaje de Sandra en todo momento, pudiendo variar dependiendo de las respuestas que pongamos y dependiendo del ánimo que tenga el personaje al final del juego, se alcanzará un final y otro.
 
  5. **Referencias**
+
  Los recursos utilizados en el proyecto son los siguientes:
 -  # uadventure:
   https://github.com/e-ucm/uAdventure
