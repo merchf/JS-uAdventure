@@ -26,10 +26,13 @@ El juego nos pone en la situación de Sandra, una chica que tiene mucho interés
  1. **Aspectos generales**
 
  Este juego tiene el objetivo de enseñar a un público entre 11 y 12 años que las carreras o los estudios no tienen género. “Apta” utiliza un vocabulario sencillo, pero a la vez es variado y juvenil. La ambientación que quiere dar el diálogo es realista y busca poner al jugador en la situación del personaje principal. Se puede interactuar con diferentes personajes y elegir la manera de responderles.
+
  **Vista general**
+
  ![Portada Juego](https://github.com/amprubio/JS-uAdventure/blob/master/PrimerPrototipo/Recursos/escenarios/Juego-portada.png?raw=true)
  
 1.1 Relato breve y parcial de una partida típica
+
  ![Inicio juego](https://github.com/amprubio/JS-uAdventure/blob/master/PrimerPrototipo/Recursos/escenarios/Intro.png?raw=true)
 Esta imagen es la primera del juego, introduciendo así al jugador en “Apta” para que sepa el objetivo y cómo se debe replantear sus acciones a la hora de jugar.
 
@@ -46,10 +49,14 @@ También se encuentran bloqueadas algunas salidas para que se interactúe con ob
 
 El juego dispone de un menú sencillo, en el que solo se puede comenzar una partida o acceder a los créditos como se aprecia en la foto de vista general. Los emoticonos que hay en la esquina son información sobre el juego, ya que está en español y va sobre la educación.
 Una vez en la pantalla de créditos, podemos acceder al menú principal  clicando en el icono de flechas.
+
 ![Créditos](https://github.com/amprubio/JS-uAdventure/blob/master/PrimerPrototipo/Recursos/escenarios/creditos.png?raw=true)
 	 2.1. **Configuración**
+
 	 No dispone de configuración. 
-	 2.2 **Interfaz y control**
+
+	 2.2. **Interfaz y control**
+
 	 Los controles son todos con el ratón, de modo que así es más accesible para todo el mundo. Además, la interfaz del juego es bastante simple, consiste en cajas emergentes de diálogos (cambian de sitio dependiendo de quien habla) y se clickea para moverse o cambiar de diálogo.
 	 
  3. **Jugabilidad**
@@ -58,21 +65,23 @@ Una vez en la pantalla de créditos, podemos acceder al menú principal  clicand
 
 	 Puesto que el control es mediante un ratón las mecánicas son interactuar con los personajes o con objetos.
 	 
-	 3.2.**Dinámica**
+	 3.2. **Dinámica**
 
 	 En este juego no hay una forma explícita de perder, sin embargo el juego cuenta con dos finales, uno en el que Sandra logra su sueño, y otra en la que no lo consigue.
 	 
-	 3.3.**Estética**
+	 3.3. **Estética**
 
 	 Se sigue una estética minimalista, donde destacan más las formas en contraste con el fondo.
 	 ![escenario burguer](https://github.com/amprubio/JS-uAdventure/blob/master/PrimerPrototipo/Recursos/escenarios/burger.png?raw=true)![escenario habitación casa](https://github.com/amprubio/JS-uAdventure/blob/master/PrimerPrototipo/Recursos/escenarios/casa-habitacion.png?raw=true)
- 4. **Contenido**
 
-	 4.1.**Historia**
+ 4. **Contenido**
+ 
+
+	 4.1. **Historia**
 
 	 Sandra es una alumna de segundo de bachillerato que está pensando en hacer ingeniería informática, pero tanto sus compañeros, el profesor y sus padres le hacen dudar con sus opiniones de lo que de verdad quiere estudiar. A medida que vaya hablando con más personajes su ánimo irá aumentando o bajando dependiendo de cómo responda a esas críticas.
 	 
-	 4.2.**Niveles**
+	 4.2. **Niveles**
 
 	 “Apto” no tiene niveles salvo por la prueba final, pero por lo demás es un juego conversacional en el que la dinámica es no desanimarse por los comentarios de otros personajes.
 	 
