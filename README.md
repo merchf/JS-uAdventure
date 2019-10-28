@@ -19,7 +19,8 @@ Este juego cuenta la historia de Sandra, una chica que quiere estudiar ingenier�
 |**Cantidades**: Escenarios: 11, Objetos: 4, Personajes: 9| |
 
 
-**Descripción**
+**Descripción**:
+
 El juego nos pone en la situación de Sandra, una chica que tiene mucho interés en informática, algo que en chicas de su edad no suele ser común, de modo que el jugador tendrá que ayudar a Sandra a conseguir su objetivo pese a la perspectiva de sus compañeros y profesores.
 
  1. **Aspectos generales**
