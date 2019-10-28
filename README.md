@@ -52,7 +52,7 @@ Una vez en la pantalla de créditos, podemos acceder al menú principal  clicand
 	 2.2 **Interfaz y control**
 	 Los controles son todos con el ratón, de modo que así es más accesible para todo el mundo. Además, la interfaz del juego es bastante simple, consiste en cajas emergentes de diálogos (cambian de sitio dependiendo de quien habla) y se clickea para moverse o cambiar de diálogo.
 	 
- - **Jugabilidad**
+ 3. **Jugabilidad**
  
 	 3.1. **Mecánica**
 
@@ -66,7 +66,8 @@ Una vez en la pantalla de créditos, podemos acceder al menú principal  clicand
 
 	 Se sigue una estética minimalista, donde destacan más las formas en contraste con el fondo.
 	 ![escenario burguer](https://github.com/amprubio/JS-uAdventure/blob/master/PrimerPrototipo/Recursos/escenarios/burger.png?raw=true)![escenario habitación casa](https://github.com/amprubio/JS-uAdventure/blob/master/PrimerPrototipo/Recursos/escenarios/casa-habitacion.png?raw=true)
- - **Contenido**
+ 4. **Contenido**
+
 	 4.1.**Historia**
 
 	 Sandra es una alumna de segundo de bachillerato que está pensando en hacer ingeniería informática, pero tanto sus compañeros, el profesor y sus padres le hacen dudar con sus opiniones de lo que de verdad quiere estudiar. A medida que vaya hablando con más personajes su ánimo irá aumentando o bajando dependiendo de cómo responda a esas críticas.
@@ -128,17 +129,17 @@ Las barra de ánimo muestra el ánimo del personaje de Sandra en todo momento, p
  Cedidos por Laura M. Provencio.
 
 - # Música
--   [https://www.youtube.com/watch?v=MyN0tavjXF8](https://www.youtube.com/watch?v=MyN0tavjXF8)
+   [https://www.youtube.com/watch?v=MyN0tavjXF8](https://www.youtube.com/watch?v=MyN0tavjXF8)
     
--   [https://www.youtube.com/watch?v=aLsCyq-yvVg](https://www.youtube.com/watch?v=aLsCyq-yvVg)
+   [https://www.youtube.com/watch?v=aLsCyq-yvVg](https://www.youtube.com/watch?v=aLsCyq-yvVg)
     
--   [https://www.youtube.com/watch?v=HlKoKMirKyc](https://www.youtube.com/watch?v=HlKoKMirKyc)
+   [https://www.youtube.com/watch?v=HlKoKMirKyc](https://www.youtube.com/watch?v=HlKoKMirKyc)
     
--   [https://www.youtube.com/watch?v=cADT2DGo7Gs](https://www.youtube.com/watch?v=cADT2DGo7Gs)
+   [https://www.youtube.com/watch?v=cADT2DGo7Gs](https://www.youtube.com/watch?v=cADT2DGo7Gs)
     
--   [https://www.youtube.com/watch?v=VN6uG1KmUa0](https://www.youtube.com/watch?v=VN6uG1KmUa0)
+   [https://www.youtube.com/watch?v=VN6uG1KmUa0](https://www.youtube.com/watch?v=VN6uG1KmUa0)
     
--   [https://www.youtube.com/watch?v=2QlmkeJHrpQ](https://www.youtube.com/watch?v=2QlmkeJHrpQ)
+   [https://www.youtube.com/watch?v=2QlmkeJHrpQ](https://www.youtube.com/watch?v=2QlmkeJHrpQ)
 
 # Archivos de interés
 
