@@ -14,7 +14,7 @@ Este juego cuenta la historia de Sandra, una chica que quiere estudiar ingenier√
 
 # url repositorio: https://github.com/amprubio/JS-uAdventure
 # url Documento de dise√±o del videojuego: https://github.com/amprubio/JS-uAdventure/blob/master/GDD_Apta.pdf
-# url Gameplay: 
+# url Gameplay: https://github.com/amprubio/JS-uAdventure/blob/master/gameplay.webm
 # url uadventure: https://github.com/e-ucm/uAdventure
 
 GRAFICOS HECHOS POR: Laura M. Provencio.
