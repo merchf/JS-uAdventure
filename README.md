@@ -57,7 +57,7 @@ Una vez en la pantalla de créditos, podemos acceder al menú principal  clicand
 
 2.2. **Interfaz y control**
 
-	 Los controles son todos con el ratón, de modo que así es más accesible para todo el mundo. Además, la interfaz del juego es bastante simple, consiste en cajas emergentes de diálogos (cambian de sitio dependiendo de quien habla) y se clickea para moverse o cambiar de diálogo.
+Los controles son todos con el ratón, de modo que así es más accesible para todo el mundo. Además, la interfaz del juego es bastante simple, consiste en cajas emergentes de diálogos (cambian de sitio dependiendo de quien habla) y se clickea para moverse o cambiar de diálogo.
 	 
  3. **Jugabilidad**
  
