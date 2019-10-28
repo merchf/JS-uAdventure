@@ -51,11 +51,11 @@ El juego dispone de un menú sencillo, en el que solo se puede comenzar una part
 Una vez en la pantalla de créditos, podemos acceder al menú principal  clicando en el icono de flechas.
 
 ![Créditos](https://github.com/amprubio/JS-uAdventure/blob/master/PrimerPrototipo/Recursos/escenarios/creditos.png?raw=true)
-	 2.1. **Configuración**
 
-	 No dispone de configuración. 
+2.1. **Configuración**
+	No dispone de configuración. 
 
-	 2.2. **Interfaz y control**
+2.2. **Interfaz y control**
 
 	 Los controles son todos con el ratón, de modo que así es más accesible para todo el mundo. Además, la interfaz del juego es bastante simple, consiste en cajas emergentes de diálogos (cambian de sitio dependiendo de quien habla) y se clickea para moverse o cambiar de diálogo.
 	 
